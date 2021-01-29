@@ -2,7 +2,7 @@
 using SA.ScriptableData;
 using DG.Tweening;
 
-public class CameraController : MonoBehaviour
+public class CameraController : TemporalSingleton<CameraController>
 {
     #region Variables
 
@@ -36,12 +36,20 @@ public class CameraController : MonoBehaviour
 
     private Tween cameraTween;
 
-    #endregion Variables
+	#endregion Variables
 
-    #region MonoBehaviour Methods
+	#region Properties
 
-    private void Awake()
-    {
+    public Camera Camera { get; private set; }
+
+	#endregion
+
+	#region MonoBehaviour Methods
+
+	protected override void Initialize()
+	{
+		base.Initialize();
+     
         if (playerPosition != null && aimPosition != null)
         {
             playerPosition.ValueChanged += UpdateCameraPosition;
@@ -51,6 +59,8 @@ public class CameraController : MonoBehaviour
         {
             Debug.LogError($"{nameof(playerPosition)} or {nameof(aimPosition)} properties of {nameof(CameraController)} are not set at GameObject: {this.gameObject.name}");
         }
+
+        Camera = GetComponent<Camera>();
     }
 
     #endregion MonoBehaviour Methods
