@@ -123,7 +123,7 @@ namespace ObjectPooling
 
         private bool Expand()
         {
-             int newInstancesCount = (_poolSize + _poolExpandingSize) < _maxPoolSize ? _poolExpandingSize : (_maxPoolSize - _poolSize);
+            int newInstancesCount = (_poolSize + _poolExpandingSize) < _maxPoolSize ? _poolExpandingSize : (_maxPoolSize - _poolSize);
             if (newInstancesCount <= 0) return false;
             for (int i = 0; i < newInstancesCount; ++i)
             {

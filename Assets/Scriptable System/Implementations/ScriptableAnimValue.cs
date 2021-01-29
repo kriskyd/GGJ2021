@@ -18,7 +18,7 @@ namespace SA.ScriptableData.Animated
 			get { return AnimValue.Target; }
 		}
 
-		public new event AnimValueChangedEvent<V> OnValueChanged
+		public new event AnimValueChangedEvent<V> ValueChanged
 		{
 			add
 			{
