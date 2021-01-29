@@ -22,5 +22,4 @@ public class TempPlayerScript : MonoBehaviour
 			playerPosition.Value = lastPosition = transform.position;
 		}
 	}
-
 }

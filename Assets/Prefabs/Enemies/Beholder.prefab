@@ -436,7 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 968154561584194284}
-  enemiesManagerValue: {fileID: 11400000, guid: dffb339420553b247a48e7c8b45312b6,
+  attackPlayerStance: {fileID: 11400000, guid: 514455da298bf5d448c45c16d3b29a01, type: 2}
+  stealRocketPartStance: {fileID: 11400000, guid: a00a665fd18618f48a9aab38d1fcf211,
     type: 2}
 --- !u!195 &968154561584194284
 NavMeshAgent:
