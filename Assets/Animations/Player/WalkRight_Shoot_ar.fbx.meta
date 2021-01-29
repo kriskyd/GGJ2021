@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1d4365e1541bb6949a273318862b72d3
+guid: c35ee647aa5aebb438a2da9bd895f633
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -23,50 +23,50 @@ ModelImporter:
     100034: Headgear_Left
     100036: Headgear_Right
     100038: Hips
-    100040: //RootNode
-    100042: Index_Distal_Left
-    100044: Index_Distal_Right
-    100046: Index_Intermediate_Left
-    100048: Index_Intermediate_Right
-    100050: Index_Proximal_Left
-    100052: Index_Proximal_Right
-    100054: Leg1
-    100056: LowerArm_Left
-    100058: LowerArm_Right
-    100060: LowerLeg_Left
-    100062: LowerLeg_Right
-    100064: magazine_Right
-    100066: Neck
-    100068: RestOfFingers_Distal_Left
-    100070: RestOfFingers_Distal_Right
-    100072: RestOfFingers_Intermediate_Left
-    100074: RestOfFingers_Intermediate_Right
-    100076: RestOfFingers_Proximal_Left
-    100078: RestOfFingers_Proximal_Right
-    100080: Shoulder_Left
-    100082: Shoulder_Right
-    100084: ShoulderPadBlade_Left
-    100086: ShoulderPadBlade_Right
-    100088: ShoulderPadBody_Left
-    100090: ShoulderPadBody_Right
-    100092: ShoulderPadCTRL_Left
-    100094: ShoulderPadCTRL_Right
-    100096: Spine
-    100098: Thumb_Distal_Left
-    100100: Thumb_Distal_Right
-    100102: Thumb_Intermediate_Left
-    100104: Thumb_Intermediate_Right
-    100106: Thumb_Proximal_Left
-    100108: Thumb_Proximal_Right
-    100110: Toe_Left
-    100112: Toe_Right
-    100114: Toetip_Left
-    100116: Toetip_Right
-    100118: Trigger_Right
-    100120: UpperArm_Left
-    100122: UpperArm_Right
-    100124: UpperLeg_Left
-    100126: UpperLeg_Right
+    100040: Index_Distal_Left
+    100042: Index_Distal_Right
+    100044: Index_Intermediate_Left
+    100046: Index_Intermediate_Right
+    100048: Index_Proximal_Left
+    100050: Index_Proximal_Right
+    100052: Leg1
+    100054: LowerArm_Left
+    100056: LowerArm_Right
+    100058: LowerLeg_Left
+    100060: LowerLeg_Right
+    100062: magazine_Right
+    100064: Neck
+    100066: RestOfFingers_Distal_Left
+    100068: RestOfFingers_Distal_Right
+    100070: RestOfFingers_Intermediate_Left
+    100072: RestOfFingers_Intermediate_Right
+    100074: RestOfFingers_Proximal_Left
+    100076: RestOfFingers_Proximal_Right
+    100078: Shoulder_Left
+    100080: Shoulder_Right
+    100082: ShoulderPadBlade_Left
+    100084: ShoulderPadBlade_Right
+    100086: ShoulderPadBody_Left
+    100088: ShoulderPadBody_Right
+    100090: ShoulderPadCTRL_Left
+    100092: ShoulderPadCTRL_Right
+    100094: Spine
+    100096: Thumb_Distal_Left
+    100098: Thumb_Distal_Right
+    100100: Thumb_Intermediate_Left
+    100102: Thumb_Intermediate_Right
+    100104: Thumb_Proximal_Left
+    100106: Thumb_Proximal_Right
+    100108: Toe_Left
+    100110: Toe_Right
+    100112: Toetip_Left
+    100114: Toetip_Right
+    100116: Trigger_Right
+    100118: UpperArm_Left
+    100120: UpperArm_Right
+    100122: UpperLeg_Left
+    100124: UpperLeg_Right
+    100126: //RootNode
     400000: Arm1
     400002: ArmPlacement_Left
     400004: ArmPlacement_Right
@@ -87,50 +87,50 @@ ModelImporter:
     400034: Headgear_Left
     400036: Headgear_Right
     400038: Hips
-    400040: //RootNode
-    400042: Index_Distal_Left
-    400044: Index_Distal_Right
-    400046: Index_Intermediate_Left
-    400048: Index_Intermediate_Right
-    400050: Index_Proximal_Left
-    400052: Index_Proximal_Right
-    400054: Leg1
-    400056: LowerArm_Left
-    400058: LowerArm_Right
-    400060: LowerLeg_Left
-    400062: LowerLeg_Right
-    400064: magazine_Right
-    400066: Neck
-    400068: RestOfFingers_Distal_Left
-    400070: RestOfFingers_Distal_Right
-    400072: RestOfFingers_Intermediate_Left
-    400074: RestOfFingers_Intermediate_Right
-    400076: RestOfFingers_Proximal_Left
-    400078: RestOfFingers_Proximal_Right
-    400080: Shoulder_Left
-    400082: Shoulder_Right
-    400084: ShoulderPadBlade_Left
-    400086: ShoulderPadBlade_Right
-    400088: ShoulderPadBody_Left
-    400090: ShoulderPadBody_Right
-    400092: ShoulderPadCTRL_Left
-    400094: ShoulderPadCTRL_Right
-    400096: Spine
-    400098: Thumb_Distal_Left
-    400100: Thumb_Distal_Right
-    400102: Thumb_Intermediate_Left
-    400104: Thumb_Intermediate_Right
-    400106: Thumb_Proximal_Left
-    400108: Thumb_Proximal_Right
-    400110: Toe_Left
-    400112: Toe_Right
-    400114: Toetip_Left
-    400116: Toetip_Right
-    400118: Trigger_Right
-    400120: UpperArm_Left
-    400122: UpperArm_Right
-    400124: UpperLeg_Left
-    400126: UpperLeg_Right
+    400040: Index_Distal_Left
+    400042: Index_Distal_Right
+    400044: Index_Intermediate_Left
+    400046: Index_Intermediate_Right
+    400048: Index_Proximal_Left
+    400050: Index_Proximal_Right
+    400052: Leg1
+    400054: LowerArm_Left
+    400056: LowerArm_Right
+    400058: LowerLeg_Left
+    400060: LowerLeg_Right
+    400062: magazine_Right
+    400064: Neck
+    400066: RestOfFingers_Distal_Left
+    400068: RestOfFingers_Distal_Right
+    400070: RestOfFingers_Intermediate_Left
+    400072: RestOfFingers_Intermediate_Right
+    400074: RestOfFingers_Proximal_Left
+    400076: RestOfFingers_Proximal_Right
+    400078: Shoulder_Left
+    400080: Shoulder_Right
+    400082: ShoulderPadBlade_Left
+    400084: ShoulderPadBlade_Right
+    400086: ShoulderPadBody_Left
+    400088: ShoulderPadBody_Right
+    400090: ShoulderPadCTRL_Left
+    400092: ShoulderPadCTRL_Right
+    400094: Spine
+    400096: Thumb_Distal_Left
+    400098: Thumb_Distal_Right
+    400100: Thumb_Intermediate_Left
+    400102: Thumb_Intermediate_Right
+    400104: Thumb_Proximal_Left
+    400106: Thumb_Proximal_Right
+    400108: Toe_Left
+    400110: Toe_Right
+    400112: Toetip_Left
+    400114: Toetip_Right
+    400116: Trigger_Right
+    400118: UpperArm_Left
+    400120: UpperArm_Right
+    400122: UpperLeg_Left
+    400124: UpperLeg_Right
+    400126: //RootNode
     2100000: w_h_01
     2100002: w_b_01
     2100004: w_bp_01
@@ -143,7 +143,7 @@ ModelImporter:
     4300006: Arm1
     4300008: Leg1
     4300010: AssaultRifle
-    7400000: Idle_Shoot_Ar
+    7400000: WalkRight_Shoot_AR
     9500000: //RootNode
     13700000: Arm1
     13700002: AssaultRifle
@@ -181,7 +181,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle_Shoot_Ar
+      name: WalkRight_Shoot_AR
       takeName: Take 001
       firstFrame: 0
       lastFrame: 40
@@ -333,8 +333,8 @@ ModelImporter:
         weight: 1
       - path: Leg1
         weight: 0
-      maskType: 0
-      maskSource: {instanceID: 0}
+      maskType: 1
+      maskSource: {fileID: 31900000, guid: e0402be4321aa2646a7af179c44591a7, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:

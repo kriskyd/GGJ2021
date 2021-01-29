@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6a236f5b06f9cb44ae1ca8b50fcd8ca
+guid: a09bc6106a9643c4a9daac764c297ae2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -143,7 +143,7 @@ ModelImporter:
     4300006: Arm1
     4300008: Leg1
     4300010: AssaultRifle
-    7400000: WalkRight_Shoot_AR
+    7400000: WalkLeft_Shoot_AR
     9500000: //RootNode
     13700000: Arm1
     13700002: AssaultRifle
@@ -181,7 +181,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: WalkRight_Shoot_AR
+      name: WalkLeft_Shoot_AR
       takeName: Take 001
       firstFrame: 0
       lastFrame: 40
