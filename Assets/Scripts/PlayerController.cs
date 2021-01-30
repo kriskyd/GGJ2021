@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+	[SerializeField] private int maxHP = 100;
+
 	[Header("Movement")]
 
 	[SerializeField] private Vector3Value playerPosition;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private Transform bulletSpawnTransform;
 	[SerializeField] private int maxBulletsPerSec = 9;
+	[SerializeField] private AudioSource shootSoundSource;
 
 	[Header("Animator")]
 
@@ -29,6 +32,13 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private string animShootParam;
 
 	private bool useAction;
+
+    private int _hp;
+	public int HP { get => _hp; }
+
+	private bool _isAlive = true;
+	public bool IsAlive { get => _isAlive; }
+
 	private bool isRunning;
 	private float movementSpeed;
 	private bool isShooting;
@@ -38,6 +48,9 @@ public class PlayerController : MonoBehaviour
 	private AudioSource audioSource;
 	private float lastWalkSoundTime;
 
+	private const string hitTriggerName = "Hit";
+	private const string deadBoolName = "Dead";
+
 	/// <summary>
 	/// Shoot event that uses bullet transform as parameter.
 	/// </summary>
@@ -45,17 +58,21 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		_hp = maxHP;
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
 	{
-		GetInput();
-		MovePlayer();
-		GetAimPoint();
-		RotatePlayer();
-		Shoot();
+		if (_isAlive)
+		{
+			GetInput();
+			MovePlayer();
+			GetAimPoint();
+			RotatePlayer();
+			Shoot();
+		}
 	}
 
 	private void GetInput()
@@ -118,6 +135,7 @@ public class PlayerController : MonoBehaviour
 		{
 			lastShootTime = Time.time;
 			CreateBullet();
+			shootSoundSource.Play();
 		}
 	}
 
@@ -140,4 +158,23 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public void GotHit(int damage)
+	{
+		if (_hp - damage <= 0)
+		{
+			Die();
+		}
+		else
+		{
+			animator.SetTrigger(hitTriggerName);
+			_hp -= damage;
+		}
+	}
+
+	private void Die()
+    {
+		animator.SetBool(deadBoolName, true);
+		_isAlive = false;
+		navMeshAgent.enabled = false;
+    }
 }
