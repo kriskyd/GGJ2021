@@ -158,8 +158,8 @@ MonoBehaviour:
   - {fileID: 4122260198039515835}
   playerPosition: {fileID: 11400000, guid: f778f0a31c37b374eb63f87f9bdaa51f, type: 2}
   rocketPosition: {fileID: 11400000, guid: 567e6206360a19340b3f686fdb30457a, type: 2}
-  minEnemiesToSpawn: 5
-  maxEnemiesToSpawn: 15
+  minEnemiesToSpawn: 0
+  maxEnemiesToSpawn: 0
   spawnBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 44, y: 2, z: 44}

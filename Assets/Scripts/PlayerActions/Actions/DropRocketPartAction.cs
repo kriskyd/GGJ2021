@@ -4,7 +4,7 @@
 	{
 		private RocketPartHolderValue rocketPartHolderValue;
 
-		public DropRocketPartAction(RocketPartHolderValue rocketPartHolderValue)
+		public DropRocketPartAction(string actionName, RocketPartHolderValue rocketPartHolderValue) : base(actionName)
 		{
 			this.rocketPartHolderValue = rocketPartHolderValue;
 		}

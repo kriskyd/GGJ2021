@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e14bf88976169834885e8fa3d287c44b, type: 3}
-  m_Name: RocketPartData 2
+  m_Name: 1Front
   m_EditorClassIdentifier: 
-  outlineColor: {r: 0, g: 0, b: 1, a: 0.49803922}
+  outlineColor: {r: 0, g: 0, b: 0, a: 0.49803922}

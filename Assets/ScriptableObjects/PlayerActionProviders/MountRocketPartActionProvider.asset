@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1116b5059a6c5bf4ca6c4539f98e6c6f, type: 3}
   m_Name: MountRocketPartActionProvider
   m_EditorClassIdentifier: 
+  actionName: 
+  maxMountDistance: 2
+  rocketPartHolderValue: {fileID: 11400000, guid: c8387637a8453df4b81550ab6491408d,
+    type: 2}
+  rocketValue: {fileID: 11400000, guid: 91e3676968096d840b78aaa24fbaafc3, type: 2}
+  playerPosition: {fileID: 11400000, guid: f778f0a31c37b374eb63f87f9bdaa51f, type: 2}

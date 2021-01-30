@@ -10,7 +10,7 @@ namespace PlayerActions.Providers
 
 		public override PlayerAction Provide()
 		{
-			return new DropRocketPartAction(rocketPartHolderValue);
+			return new DropRocketPartAction(ActionName, rocketPartHolderValue);
 		}
 	}
 }
