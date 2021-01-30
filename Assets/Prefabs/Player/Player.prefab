@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 60991453259175740}
   - component: {fileID: 60991453250189470}
   - component: {fileID: 7133403842664035107}
+  - component: {fileID: 3251470328554918485}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -994,7 +995,6 @@ MonoBehaviour:
   runSpeed: 7
   movementSpeedLerp: 0.2
   playerFlatVelocity: {fileID: 11400000, guid: ff5d4ab928d73374a9966761ceff3cc4, type: 2}
-  bulletPool: {fileID: 0}
   bulletSpawnTransform: {fileID: 2307877350792975030}
   maxBulletsPerSec: 9
   input: {fileID: 11400000, guid: 4891ed444b6e13f47b1d971c5c2d39dd, type: 2}
@@ -1002,6 +1002,28 @@ MonoBehaviour:
   animForwardParam: velocity_forward
   animRightParam: velocity_right
   animShootParam: shoot_speed
+--- !u!195 &3251470328554918485
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60991453259533084}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &60991453259533086
 GameObject:
   m_ObjectHideFlags: 0
