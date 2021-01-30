@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07920719b4f15a34f911941d7bbbc2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolID: 
+  poolID: turtle
   pooledGameObject: {fileID: 1837317425425208, guid: 3aec22b5d3f3c2947bb81040b56e5f96,
     type: 3}
   _minPoolSize: 15
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07920719b4f15a34f911941d7bbbc2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolID: 
+  poolID: slime
   pooledGameObject: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1,
     type: 3}
   _minPoolSize: 15
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07920719b4f15a34f911941d7bbbc2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolID: 
+  poolID: golem
   pooledGameObject: {fileID: 1077356408, guid: c6cfc32748fb5004aa11a1be074b5c58, type: 3}
   _minPoolSize: 5
   _limitPoolSize: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07920719b4f15a34f911941d7bbbc2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolID: 
+  poolID: beholder
   pooledGameObject: {fileID: 9011648103021171507, guid: 8d791e7885d8c11418ff9fcd9552c337,
     type: 3}
   _minPoolSize: 10

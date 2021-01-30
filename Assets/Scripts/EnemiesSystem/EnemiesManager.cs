@@ -85,13 +85,16 @@ public class EnemiesManager : MonoBehaviour
 	{
 		foreach(var spawnedEnemy in spawnedEnemies)
 		{
-			if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+			if (spawnedEnemy.Enemy.CurrentStance != Stance.Die)
 			{
-				spawnedEnemy.Enemy.SetStance(this, Stance.StealRocketPart);
-			}
-			else
-			{
-				spawnedEnemy.Enemy.SetStance(this, Stance.AttackPlayer);
+				if (Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+				{
+					spawnedEnemy.Enemy.SetStance(Stance.StealRocketPart);
+				}
+				else
+				{
+					spawnedEnemy.Enemy.SetStance(Stance.AttackPlayer);
+				}
 			}
 		}
 	}

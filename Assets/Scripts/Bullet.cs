@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 	[SerializeField] private float speed;
 	[SerializeField] private Vector3 forward;
 	[SerializeField] private float lifeTime;
+	[SerializeField] private int damage;
 
 	private float lifeTimeBackup;
 
@@ -33,5 +34,14 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 		{
 			ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
 		}
+	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.TryGetComponent(out Enemy enemy))
+        {
+			enemy.GotHit(damage);
+		}
+		ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
 	}
 }
