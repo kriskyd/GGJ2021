@@ -53,7 +53,7 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 
 	private void BackToMenu()
 	{
-		// load new scene and start game
+		UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 	}
 
 	private void ShowControls()
