@@ -877,6 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1823e182e33d8e4980e9b732719ea29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageDealtToPlayer: 10
   enemyCollider: {fileID: 6182773469491716579}
   animator: {fileID: 95528395651247964}
   navMeshAgent: {fileID: 2764631713374688881}

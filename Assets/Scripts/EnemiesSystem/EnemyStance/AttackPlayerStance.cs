@@ -12,7 +12,6 @@ public class AttackPlayerStance : StanceSO
 
     private const string attackStateBoolName = "AttackState";
     private const string walkBoolName = "Walk";
-    private const string attackTriggerName = "Attack";
     public override Stance Stance => Stance.AttackPlayer;
 
     public override void InitializeStance(Enemy enemy)
@@ -27,7 +26,10 @@ public class AttackPlayerStance : StanceSO
             enemy.Animator.SetBool(walkBoolName, false);
             enemy.transform.DOLookAt(playerPosition.Value, 0.1f, AxisConstraint.Y, Vector3.up);
             enemy.NavMeshAgent.isStopped = true;
-            enemy.Animator.SetTrigger(attackTriggerName);
+            if (Time.time - enemy.LastAttackTime > enemy.AttackCooldown)
+            {
+                enemy.PerformAttack();
+            }
         }
         else
         {
