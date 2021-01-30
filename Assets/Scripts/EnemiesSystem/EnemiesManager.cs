@@ -53,6 +53,7 @@ public class EnemiesManager : MonoBehaviour
 		GameObject gameObject = enemiesPool.Spawn(position);
 
 		enemy = gameObject.GetComponent<Enemy>();
+		enemy.EnemiesManager = this;
 
 		spawnedEnemies.Add(new EnemyPoolData(enemy, enemiesPool));
 
@@ -72,7 +73,7 @@ public class EnemiesManager : MonoBehaviour
 		return hit.position;
 	}
 
-	private void DespawnEnemy(Enemy enemy)
+	public void DespawnEnemy(Enemy enemy)
 	{
 		int idx = spawnedEnemies.FindIndex(data => data.Enemy == enemy);
 
@@ -85,13 +86,16 @@ public class EnemiesManager : MonoBehaviour
 	{
 		foreach(var spawnedEnemy in spawnedEnemies)
 		{
-			if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+			if (spawnedEnemy.Enemy.CurrentStance != Stance.Die)
 			{
-				spawnedEnemy.Enemy.SetStance(this, Stance.StealRocketPart);
-			}
-			else
-			{
-				spawnedEnemy.Enemy.SetStance(this, Stance.AttackPlayer);
+				if (Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+				{
+					spawnedEnemy.Enemy.SetStance(Stance.StealRocketPart);
+				}
+				else
+				{
+					spawnedEnemy.Enemy.SetStance(Stance.AttackPlayer);
+				}
 			}
 		}
 	}

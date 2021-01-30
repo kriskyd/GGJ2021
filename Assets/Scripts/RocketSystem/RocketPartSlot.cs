@@ -6,8 +6,17 @@ namespace RocketSystem
 	{
 		[SerializeField]
 		private RocketPartData rocketPartData;
+		[SerializeField]
+		private MeshRenderer meshRenderer;
 
 		public RocketPartData RocketPartData => rocketPartData;
+
+		private bool PartInSlot = false;
+
+		private void Awake()
+		{
+			meshRenderer.enabled = PartInSlot;
+		}
 
 		private void Start()
 		{
@@ -16,8 +25,16 @@ namespace RocketSystem
 
 		public void PlaceRocketPart(RocketPart rocketPart)
 		{
-			rocketPart.transform.SetParent(this.transform);
-			rocketPart.transform.localPosition = Vector3.zero;
+			rocketPart.gameObject.SetActive(false);
+			PartInSlot = true;
+			meshRenderer.enabled = true;
+		}
+
+		public void RemoveRocketPart(RocketPart rocketPart)
+		{
+			rocketPart.gameObject.SetActive(true);
+			PartInSlot = false;
+			meshRenderer.enabled = false;
 		}
 
 #if UNITY_EDITOR

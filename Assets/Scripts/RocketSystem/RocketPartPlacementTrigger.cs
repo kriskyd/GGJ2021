@@ -11,7 +11,7 @@ namespace RocketSystem
 				return;
 			}
 
-			RocketPart rocketPart = other.GetComponent<RocketPart>();
+			RocketPart rocketPart = other.GetComponentInParent<RocketPart>();
 
 			if(rocketPart == null)
 			{
