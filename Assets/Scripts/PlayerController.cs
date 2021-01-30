@@ -82,7 +82,10 @@ public class PlayerController : MonoBehaviour
 		move.z += Input.GetAxis("Vertical") * 0.5f;
 		move.x += Input.GetAxis("Horizontal") * 0.5f;
 		isShooting = Input.GetButton("Fire");
-		isRunning = Input.GetButton("Sprint");
+		if(Input.GetButtonDown("Sprint"))
+		{
+			isRunning = !isRunning;
+		}
 
 		if(isRunning)
 			move += new Vector3(move.x, 0f, move.z);
