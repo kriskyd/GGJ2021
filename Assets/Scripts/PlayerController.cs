@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float runSpeed = 7f;
 	[SerializeField] private float movementSpeedLerp = 0.2f;
 	[SerializeField] private Vector3Value playerFlatVelocity;
+	[SerializeField] private AudioClip walkSound;
 
 	[Header("Shooting")]
 
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
 	private float shootingSpeed;
 	private float lastShootTime;
 	private NavMeshAgent navMeshAgent;
+	private AudioSource audioSource;
+	private float lastWalkSoundTime;
 
 	/// <summary>
 	/// Shoot event that uses bullet transform as parameter.
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
 	private void Awake()
 	{
 		navMeshAgent = GetComponent<NavMeshAgent>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -126,4 +130,17 @@ public class PlayerController : MonoBehaviour
 
 		OnShoot?.Invoke(bullet.transform);
 	}
+
+	/// <summary>
+	/// Used in animation event
+	/// </summary>
+	private void PlayWalkSound()
+	{
+		if(Time.time - lastWalkSoundTime > 0.1f)
+		{
+			audioSource.PlayOneShot(walkSound);
+			lastWalkSoundTime = Time.time;
+		}
+	}
+
 }
