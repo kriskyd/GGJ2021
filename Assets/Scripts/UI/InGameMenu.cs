@@ -9,11 +9,13 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 	[SerializeField] private GameObject controlsPanel;
 	[SerializeField] private SimpleMenu menuControl;
 
+	private TMP_Button backToGameButton;
+
 	protected override void Initialize()
 	{
 		base.Initialize();
 
-		menuControl.CreateButton("Back To Game", BackToGame);
+		backToGameButton = menuControl.CreateButton("Back To Game", BackToGame);
 		menuControl.CreateButton("Restart", RestartGame);
 		menuControl.CreateButton("Controls", ShowControls);
 		menuControl.CreateButton("Main Menu", BackToMenu);
@@ -51,7 +53,7 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 
 	private void BackToMenu()
 	{
-		// load new scene and start game
+		UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 	}
 
 	private void ShowControls()
@@ -69,8 +71,10 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 	}
 
 
-	public void Show()
+	public void Show(string text = "Menu", bool disableBackButton = false)
 	{
+		gameStatusLabel.text = text;
+        backToGameButton.gameObject.SetActive(!disableBackButton);
 		gameObject.SetActive(true);
 		menuPanel.SetActive(true);
 		Time.timeScale = 0f;

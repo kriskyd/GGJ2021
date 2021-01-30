@@ -76,11 +76,11 @@ public class GameManager : MonoBehaviour
 
     public void GameWon()
     {
-        Debug.Log("Game won");
+        inGameMenu.Show("Game won", true);
     }
 
     public void GameOver()
     {
-        Debug.Log("Game over");
+        inGameMenu.Show("Game over", true);
     }
 }
