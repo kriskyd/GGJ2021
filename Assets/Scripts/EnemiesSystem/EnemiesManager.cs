@@ -53,6 +53,7 @@ public class EnemiesManager : MonoBehaviour
 		GameObject gameObject = enemiesPool.Spawn(position);
 
 		enemy = gameObject.GetComponent<Enemy>();
+		enemy.EnemiesManager = this;
 
 		spawnedEnemies.Add(new EnemyPoolData(enemy, enemiesPool));
 
@@ -72,7 +73,7 @@ public class EnemiesManager : MonoBehaviour
 		return hit.position;
 	}
 
-	private void DespawnEnemy(Enemy enemy)
+	public void DespawnEnemy(Enemy enemy)
 	{
 		int idx = spawnedEnemies.FindIndex(data => data.Enemy == enemy);
 

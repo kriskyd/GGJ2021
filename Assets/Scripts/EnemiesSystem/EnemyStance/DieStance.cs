@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 [CreateAssetMenu(fileName = "DieStance", menuName = "Stances/Die")]
 public class DieStance : StanceSO
@@ -16,6 +17,10 @@ public class DieStance : StanceSO
 
     public override void PerformStance(Enemy enemy)
     {
+        if (!enemy.IsCollapsingTweenSet)
+        {
+            enemy.SetCollapsingTween();
+        }
     }
 
     public override void DeinitializeStance(Enemy enemy)
