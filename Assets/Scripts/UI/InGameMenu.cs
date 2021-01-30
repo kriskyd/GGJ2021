@@ -73,5 +73,6 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 	{
 		gameObject.SetActive(true);
 		menuPanel.SetActive(true);
+		Time.timeScale = 0f;
 	}
 }
