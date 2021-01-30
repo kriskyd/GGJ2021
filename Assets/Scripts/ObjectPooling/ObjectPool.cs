@@ -9,6 +9,9 @@ namespace ObjectPooling
         #region Variables
 
         [SerializeField]
+        private string poolID;
+
+        [SerializeField]
         private GameObject pooledGameObject = null;
 
         [SerializeField]
@@ -85,6 +88,7 @@ namespace ObjectPooling
             if (pooledGameObject != null)
             {
                 Initialize(pooledGameObject);
+                ObjectPoolManager.Instance?.RegisterPool(poolID, this);
             }
         }
 
