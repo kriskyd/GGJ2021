@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1077356409}
   - component: {fileID: 7054024061323256755}
   - component: {fileID: 770109372496464499}
+  - component: {fileID: 564285922095577378}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -377,11 +378,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1823e182e33d8e4980e9b732719ea29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCollider: {fileID: 564285922095577378}
   animator: {fileID: 1077356409}
   navMeshAgent: {fileID: 770109372496464499}
   attackPlayerStance: {fileID: 11400000, guid: 514455da298bf5d448c45c16d3b29a01, type: 2}
   stealRocketPartStance: {fileID: 11400000, guid: a00a665fd18618f48a9aab38d1fcf211,
     type: 2}
+  dieStance: {fileID: 11400000, guid: 7ce39ab5cbe22a14a95428c132c44b56, type: 2}
+  idleStance: {fileID: 11400000, guid: 1ae9f49e556a3f743b72cd8c64708d93, type: 2}
+  maxHP: 100
 --- !u!195 &770109372496464499
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -404,6 +409,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &564285922095577378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077356408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3661656, y: 4, z: 1.5755572}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &1099011281
 GameObject:
   m_ObjectHideFlags: 0
