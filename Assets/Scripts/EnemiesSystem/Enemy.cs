@@ -1,4 +1,5 @@
-﻿using ObjectPooling;
+﻿using DG.Tweening;
+using ObjectPooling;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,11 +20,17 @@ public class Enemy : MonoBehaviour, IRestorable
 	[SerializeField]
 	private StanceSO idleStance;
 
-	private IStance currentStance = null;
-
 	[SerializeField]
 	private int maxHP;
+
+	public EnemiesManager EnemiesManager { private get; set; }
+
+	private IStance currentStance = null;
+
+	private Tween collapsingTween;
+
 	private int _hp;
+
 	public int HP { get => _hp; }
 
 	public Stance CurrentStance => currentStance != null ? currentStance.Stance : Stance.Idle;
@@ -31,6 +38,7 @@ public class Enemy : MonoBehaviour, IRestorable
 	public Animator Animator => animator;
 	public Collider Collider => enemyCollider;
 
+	public bool IsCollapsingTweenSet => collapsingTween != null;
 
 	private const string hitTriggerName = "Hit";
 
@@ -61,6 +69,11 @@ public class Enemy : MonoBehaviour, IRestorable
 		navMeshAgent.enabled = false;
 		_hp = maxHP;
 		SetStance(Stance.Idle);
+        if (collapsingTween != null)
+        {
+			collapsingTween.Kill();
+			collapsingTween = null;
+		}
 	}
 
 	public void SetStance(Stance stance)
@@ -105,6 +118,19 @@ public class Enemy : MonoBehaviour, IRestorable
 			animator.SetTrigger(hitTriggerName);
 			_hp -= damage;
 		}
+	}
+
+	public void DespawnEnemy()
+    {
+		EnemiesManager.DespawnEnemy(this);
+    }
+
+	public void SetCollapsingTween()
+    {
+		if (collapsingTween != null) collapsingTween.Kill();
+		collapsingTween = transform.DOMoveY(-50.0f, 10.0f);
+		collapsingTween.SetDelay(3.0f);
+		collapsingTween.onComplete = () => { DespawnEnemy(); collapsingTween.Kill(); collapsingTween = null; };
 	}
 }
 
