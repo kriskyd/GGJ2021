@@ -108,6 +108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketPartData: {fileID: 11400000, guid: f3038536a2252c34c96b9ca65130a123, type: 2}
   outline: {fileID: 5375788270226537548}
+  rocketPartPositions: {fileID: 11400000, guid: 8c76afcf1e64eeb43ac7e177740045c8,
+    type: 2}
 --- !u!114 &5375788270226537548
 MonoBehaviour:
   m_ObjectHideFlags: 0

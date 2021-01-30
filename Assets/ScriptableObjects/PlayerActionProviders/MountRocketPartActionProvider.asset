@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b02526e4a1c836741baf977f48f5b856, type: 3}
-  m_Name: Player Input Mouse&Keyboard 1
+  m_Script: {fileID: 11500000, guid: 1116b5059a6c5bf4ca6c4539f98e6c6f, type: 3}
+  m_Name: MountRocketPartActionProvider
   m_EditorClassIdentifier: 
-  forwardKey: 119
-  backKey: 115
-  rightKey: 100
-  leftKey: 97
-  runKey: 304
-  shootKey: 323

@@ -31,7 +31,7 @@ public class AttackPlayerStance : StanceSO
         }
         else
         {
-            enemy.NavMeshAgent.Resume();
+            enemy.NavMeshAgent.isStopped = false;
             enemy.NavMeshAgent.SetDestination(playerPosition);
             enemy.Animator.SetBool(walkBoolName, true);
         }

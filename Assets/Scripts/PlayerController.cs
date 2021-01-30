@@ -1,6 +1,6 @@
-﻿using System;
-using ObjectPooling;
+﻿using ObjectPooling;
 using SA.ScriptableData;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,10 +20,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Transform bulletSpawnTransform;
 	[SerializeField] private int maxBulletsPerSec = 9;
 
-	[Header("Input")]
-
-	[SerializeField] private PlayerInputSetup input;
-
 	[Header("Animator")]
 
 	[SerializeField] private Animator animator;
@@ -31,6 +27,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private string animRightParam;
 	[SerializeField] private string animShootParam;
 
+	private bool useAction;
 	private bool isRunning;
 	private float movementSpeed;
 	private bool isShooting;
@@ -62,8 +59,8 @@ public class PlayerController : MonoBehaviour
 		Vector3 move = new Vector3();
 		move.z += Input.GetAxis("Vertical") * 0.5f;
 		move.x += Input.GetAxis("Horizontal") * 0.5f;
-		isShooting = Input.GetButton("Fire1");
-		isRunning = Input.GetKey(input.RunKey);
+		isShooting = Input.GetButton("Fire");
+		isRunning = Input.GetButton("Sprint");
 
 		if(isRunning)
 			move += new Vector3(move.x, 0f, move.z);
