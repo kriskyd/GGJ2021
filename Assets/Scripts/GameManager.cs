@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public Transform playerSpawnPoint;
 
+    [SerializeField]
+    private Material missingPartMaterial;
+
+    public Material MissingPartMaterial { get => missingPartMaterial; }
     public RocketSystem.TempRocketScript RocketScript { get => rocketScript; }
     public PlayerController PlayerController { get; private set; }
 

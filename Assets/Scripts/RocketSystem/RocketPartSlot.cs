@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace RocketSystem
 {
@@ -15,10 +16,29 @@ namespace RocketSystem
 
 		private bool PartInSlot = false;
 
+		private Material[] originalMaterials;
+		private Material[] missingPartMaterials;
+
 		private void Awake()
 		{
 			++slotsCount;
-			meshRenderer.enabled = PartInSlot;
+
+			originalMaterials = new Material[meshRenderer.materials.Length];
+			missingPartMaterials = new Material[meshRenderer.materials.Length];
+
+			for (int i = 0; i < meshRenderer.materials.Length; ++i)
+            {
+				originalMaterials[i] = meshRenderer.materials[i];
+				missingPartMaterials[i] = GameManager.Instance.MissingPartMaterial;
+            }
+
+            if (!PartInSlot)
+			{
+				meshRenderer.materials = missingPartMaterials;
+			}
+
+			//meshRenderer.enabled = PartInSlot;
+            
 		}
 
 		private void Start()
@@ -35,7 +55,9 @@ namespace RocketSystem
 		{
 			if (PartInSlot) return;
 			rocketPart.gameObject.SetActive(false);
-			PartInSlot = true;
+
+			meshRenderer.materials = originalMaterials; //PartInSlot = true;
+
 			meshRenderer.enabled = true;
 			GameManager.Instance.OnRocketPartPlaced();
 		}
@@ -44,7 +66,9 @@ namespace RocketSystem
 		{
 			if (!PartInSlot) return;
 			rocketPart.gameObject.SetActive(true);
-			PartInSlot = false;
+			
+			meshRenderer.materials = missingPartMaterials; //PartInSlot = false;
+
 			meshRenderer.enabled = false;
 			GameManager.Instance.OnRocketPartRemoved();
 		}

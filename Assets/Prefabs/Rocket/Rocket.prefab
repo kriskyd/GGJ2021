@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 201359137365651114}
   - component: {fileID: 201359137365651108}
   - component: {fileID: 201359137365651109}
+  - component: {fileID: 1762139495075251433}
   m_Layer: 0
   m_Name: RocketPartPlacementTrigger
   m_TagString: Untagged
@@ -55,8 +56,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 3}
-  m_Center: {x: 0, y: -0.5, z: 0}
+  m_Size: {x: 3.8534808, y: 1, z: 12.391536}
+  m_Center: {x: 0, y: -0.5, z: 4.695768}
+--- !u!65 &1762139495075251433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201359137365651115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.690871, y: 1, z: 6.3214064}
+  m_Center: {x: 0, y: -0.5, z: 4.695768}
 --- !u!1 &201359138149875425
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,15 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rocketValue: {fileID: 11400000, guid: 91e3676968096d840b78aaa24fbaafc3, type: 2}
   rocketPosition: {fileID: 11400000, guid: 567e6206360a19340b3f686fdb30457a, type: 2}
-  partsPlacementPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!136 &201359138149875424
 CapsuleCollider:
   m_ObjectHideFlags: 0
