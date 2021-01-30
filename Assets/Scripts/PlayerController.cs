@@ -48,18 +48,19 @@ public class PlayerController : MonoBehaviour
 	private void GetInput()
 	{
 		Vector3 move = new Vector3();
-
-		move.z += Input.GetKey(input.ForwardKey) ? 0.5f : 0f;
-		move.z += Input.GetKey(input.BackKey) ? -0.5f : 0f;
-		move.x += Input.GetKey(input.RightKey) ? 0.5f : 0f;
-		move.x += Input.GetKey(input.LeftKey) ? -0.5f : 0f;
+		move.z += Input.GetAxis("Vertical") * 0.5f;
+		move.x += Input.GetAxis("Horizontal") * 0.5f;
+		isShooting = Input.GetButton("Fire1");
 		isRunning = Input.GetKey(input.RunKey);
-		move.z += (isRunning && move.z > 0f) ? 0.5f : 0f;
-		move = move.normalized * (isRunning && move.z > 0f ? 1f : 0.5f);
+
+		if(isRunning)
+			move += new Vector3(move.x, 0f, move.z);
+
+		move = move.normalized * (isRunning ? 1f : 0.5f);
 		movementSpeed = Mathf.Lerp(movementSpeed, isRunning ? runSpeed : walkSpeed, movementSpeedLerp);
 
-		isShooting = Input.GetKey(input.ShootKey);
 		playerFlatVelocity.Value = move * movementSpeed;
+		move = transform.rotation * move;
 		animator.SetFloat(animForwardParam, move.z);
 		animator.SetFloat(animRightParam, move.x);
 		animator.speed = isRunning ? runSpeed / walkSpeed : 1f;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
 	private void MovePlayer()
 	{
 		Vector3 rotated = playerFlatVelocity.Value * Time.deltaTime;
-		transform.Translate(rotated, Space.Self);
+		transform.Translate(rotated, Space.World);
 		playerPosition.Value = transform.position;
 	}
 
@@ -104,8 +105,6 @@ public class PlayerController : MonoBehaviour
 			lastShootTime = Time.time;
 			CreateBullet();
 		}
-
-
 	}
 
 	private void CreateBullet()

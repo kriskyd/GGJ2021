@@ -4,7 +4,7 @@ namespace ObjectPooling
 {
     /// <summary>Component automatically added to GameObject created via ObjectPool Spawn method. Allows to despawn object and return it to correct pool.</summary>
     [DisallowMultipleComponent]
-    internal class PooledObject : MonoBehaviour
+    public class PooledObject : MonoBehaviour
     {
         private ObjectPool _pool;
         /// <summary>ObjectPool in which this object was created. Reference to pool is set by the pool itself and cannot be changed afterwards.</summary>
