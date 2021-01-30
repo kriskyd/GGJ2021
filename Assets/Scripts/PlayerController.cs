@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
 	private void MovePlayer()
 	{
-		Vector3 rotated = transform.rotation * playerFlatVelocity.Value * playerSpeed * Time.deltaTime;
+		Vector3 rotated = playerFlatVelocity.Value * playerSpeed * Time.deltaTime;
 		transform.Translate(rotated, Space.Self);
 		playerPosition.Value = transform.position;
 	}
