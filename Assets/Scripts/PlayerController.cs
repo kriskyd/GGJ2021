@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
 	private bool useAction;
 
-    private int _hp;
+	private int _hp;
 	public int HP { get => _hp; }
 
 	private bool _isAlive = true;
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Update()
 	{
-		if (_isAlive)
+		if(_isAlive)
 		{
 			GetInput();
 			MovePlayer();
@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
 
 		move = move.normalized * (isRunning ? 1f : 0.5f);
 		movementSpeed = Mathf.Lerp(movementSpeed, isRunning ? runSpeed : walkSpeed, movementSpeedLerp);
-
-		playerFlatVelocity.Value = move * movementSpeed;
+		float angleVelosity = Mathf.Lerp(sideWalkModifier, 1f, (90f - Mathf.Clamp(Mathf.Abs(Vector3.Angle(move, transform.forward)), 0f, 90f)) / 90f);
+		playerFlatVelocity.Value = move * movementSpeed * angleVelosity;
 		move = transform.rotation * (new Vector3(-move.x, 0f, move.z));
 		move.x = -move.x;
 		animator.SetFloat(animForwardParam, move.z);
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
 	public void GotHit(int damage)
 	{
-		if (_hp - damage <= 0)
+		if(_hp - damage <= 0)
 		{
 			Die();
 		}
@@ -174,9 +174,9 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private void Die()
-    {
+	{
 		animator.SetBool(deadBoolName, true);
 		_isAlive = false;
 		navMeshAgent.enabled = false;
-    }
+	}
 }
