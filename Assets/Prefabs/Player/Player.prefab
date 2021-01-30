@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerActionsProviders:
-  - {fileID: 11400000, guid: 68c17014333e3544cb370d8a51f81241, type: 2}
   - {fileID: 11400000, guid: 915ff001cf070d64ea5c4e25b5ee9a07, type: 2}
+  - {fileID: 11400000, guid: 68c17014333e3544cb370d8a51f81241, type: 2}
   - {fileID: 11400000, guid: fd1dad4f870436e4fb11966d0825f2f5, type: 2}
 --- !u!82 &6810834880186275107
 AudioSource:
