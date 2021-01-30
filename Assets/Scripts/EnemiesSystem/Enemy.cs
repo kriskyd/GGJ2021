@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour, IRestorable
 {
 	[SerializeField]
+	private int damageDealtToPlayer;
+	[SerializeField]
 	private Collider enemyCollider;
 	[SerializeField]
 	private Animator animator;
@@ -23,11 +25,15 @@ public class Enemy : MonoBehaviour, IRestorable
 	[SerializeField]
 	private int maxHP;
 
+	public float LastAttackTime { get; private set; }
+	public float AttackCooldown { get; private set; } = 2.0f;
+	public int DamageDealtToPlayer { get => damageDealtToPlayer; }
 	public EnemiesManager EnemiesManager { private get; set; }
 
 	private IStance currentStance = null;
 
 	private Tween collapsingTween;
+
 
 	private int _hp;
 
@@ -41,6 +47,7 @@ public class Enemy : MonoBehaviour, IRestorable
 	public bool IsCollapsingTweenSet => collapsingTween != null;
 
 	private const string hitTriggerName = "Hit";
+	private const string attackTriggerName = "Attack";
 
 	private void Awake()
 	{
@@ -131,6 +138,13 @@ public class Enemy : MonoBehaviour, IRestorable
 		collapsingTween = transform.DOMoveY(-50.0f, 10.0f);
 		collapsingTween.SetDelay(3.0f);
 		collapsingTween.onComplete = () => { DespawnEnemy(); collapsingTween.Kill(); collapsingTween = null; };
+	}
+
+	public void PerformAttack()
+	{
+		Animator.SetTrigger(attackTriggerName);
+		GameManager.Instance.PlayerController.GotHit(DamageDealtToPlayer);
+		LastAttackTime = Time.time; 
 	}
 }
 

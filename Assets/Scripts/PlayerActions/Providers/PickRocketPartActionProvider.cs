@@ -18,7 +18,7 @@ namespace PlayerActions.Providers
 
 		public override PlayerAction Provide()
 		{
-			return new PickRocketPartAction(maxPickUpDistance, playerPosition, rocketPartPositions, rocketPartHolderValue);
+			return new PickRocketPartAction(ActionName, maxPickUpDistance, playerPosition, rocketPartPositions, rocketPartHolderValue);
 		}
 	}
 }

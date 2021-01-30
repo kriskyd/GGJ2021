@@ -13,7 +13,7 @@ namespace PlayerActions
 		private ListVector3Value rocketPartPositions;
 		private RocketPartHolderValue rocketPartHolderValue;
 
-		public PickRocketPartAction(float maxPickUpDistance, Vector3Value playerPosition, ListVector3Value rocketPartPositions, RocketPartHolderValue rocketPartHolderValue)
+		public PickRocketPartAction(string actionName, float maxPickUpDistance, Vector3Value playerPosition, ListVector3Value rocketPartPositions, RocketPartHolderValue rocketPartHolderValue) : base(actionName)
 		{
 			this.maxPickUpDistance = maxPickUpDistance;
 			this.playerPosition = playerPosition;

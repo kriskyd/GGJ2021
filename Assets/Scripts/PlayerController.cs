@@ -6,12 +6,15 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+	[SerializeField] private int maxHP = 100;
+
 	[Header("Movement")]
 
 	[SerializeField] private Vector3Value playerPosition;
 	[SerializeField] private Vector3Value aimPosition;
 	[SerializeField] private float walkSpeed = 4f;
 	[SerializeField] private float runSpeed = 7f;
+	[SerializeField] private float sideWalkModifier = 0.5f;
 	[SerializeField] private float movementSpeedLerp = 0.2f;
 	[SerializeField] private Vector3Value playerFlatVelocity;
 	[SerializeField] private AudioClip walkSound;
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private Transform bulletSpawnTransform;
 	[SerializeField] private int maxBulletsPerSec = 9;
+	[SerializeField] private AudioSource shootSoundSource;
 
 	[Header("Animator")]
 
@@ -29,6 +33,13 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private string animShootParam;
 
 	private bool useAction;
+
+    private int _hp;
+	public int HP { get => _hp; }
+
+	private bool _isAlive = true;
+	public bool IsAlive { get => _isAlive; }
+
 	private bool isRunning;
 	private float movementSpeed;
 	private bool isShooting;
@@ -38,6 +49,9 @@ public class PlayerController : MonoBehaviour
 	private AudioSource audioSource;
 	private float lastWalkSoundTime;
 
+	private const string hitTriggerName = "Hit";
+	private const string deadBoolName = "Dead";
+
 	/// <summary>
 	/// Shoot event that uses bullet transform as parameter.
 	/// </summary>
@@ -45,17 +59,21 @@ public class PlayerController : MonoBehaviour
 
 	private void Awake()
 	{
+		_hp = maxHP;
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
 	{
-		GetInput();
-		MovePlayer();
-		GetAimPoint();
-		RotatePlayer();
-		Shoot();
+		if (_isAlive)
+		{
+			GetInput();
+			MovePlayer();
+			GetAimPoint();
+			RotatePlayer();
+			Shoot();
+		}
 	}
 
 	private void GetInput()
@@ -73,7 +91,8 @@ public class PlayerController : MonoBehaviour
 		movementSpeed = Mathf.Lerp(movementSpeed, isRunning ? runSpeed : walkSpeed, movementSpeedLerp);
 
 		playerFlatVelocity.Value = move * movementSpeed;
-		move = transform.rotation * move;
+		move = transform.rotation * (new Vector3(-move.x, 0f, move.z));
+		move.x = -move.x;
 		animator.SetFloat(animForwardParam, move.z);
 		animator.SetFloat(animRightParam, move.x);
 		animator.speed = isRunning ? runSpeed / walkSpeed : 1f;
@@ -118,6 +137,7 @@ public class PlayerController : MonoBehaviour
 		{
 			lastShootTime = Time.time;
 			CreateBullet();
+			shootSoundSource.Play();
 		}
 	}
 
@@ -140,4 +160,23 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public void GotHit(int damage)
+	{
+		if (_hp - damage <= 0)
+		{
+			Die();
+		}
+		else
+		{
+			animator.SetTrigger(hitTriggerName);
+			_hp -= damage;
+		}
+	}
+
+	private void Die()
+    {
+		animator.SetBool(deadBoolName, true);
+		_isAlive = false;
+		navMeshAgent.enabled = false;
+    }
 }
