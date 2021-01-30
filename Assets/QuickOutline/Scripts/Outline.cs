@@ -187,6 +187,12 @@ public class Outline : MonoBehaviour {
         continue;
       }
 
+      if (!meshFilter.mesh.isReadable)
+      {
+          Debug.LogWarning($"Not allowed to access vertices on mesh '{meshFilter.mesh.name}' (isReadable is false; Read/Write must be enabled in import settings)");
+          continue;
+      }
+      
       // Retrieve or generate smooth normals
       var index = bakeKeys.IndexOf(meshFilter.sharedMesh);
       var smoothNormals = (index >= 0) ? bakeValues[index].data : SmoothNormals(meshFilter.sharedMesh);
@@ -206,6 +212,11 @@ public class Outline : MonoBehaviour {
   List<Vector3> SmoothNormals(Mesh mesh) {
 
     // Group vertices by location
+    if (!mesh.isReadable)
+    {
+        Debug.LogWarning($"Not allowed to access vertices on mesh '{mesh.name}' (isReadable is false; Read/Write must be enabled in import settings)");
+        return new List<Vector3>();
+    }
     var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index)).GroupBy(pair => pair.Key);
 
     // Copy normals to a new list

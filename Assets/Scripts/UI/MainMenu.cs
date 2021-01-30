@@ -37,7 +37,7 @@ public class MainMenu : TemporalSingleton<MainMenu>
 
 	private void PlayGame()
 	{
-		// load new scene and start game
+		UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 	}
 
 	private void ShowCredits()
