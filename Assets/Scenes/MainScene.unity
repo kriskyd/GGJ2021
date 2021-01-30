@@ -5012,7 +5012,7 @@ RectTransform:
   m_Children:
   - {fileID: 719879549}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5130,6 +5130,18 @@ PrefabInstance:
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d651acf76ada46438d4880c9fb8adb9, type: 3}
+--- !u!114 &201359139005003870 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 201359138149875357, guid: 0d651acf76ada46438d4880c9fb8adb9,
+    type: 3}
+  m_PrefabInstance: {fileID: 201359139005003869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60731e54ec54eb64fa1b1eadc2a4556c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3914188327472094842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5202,6 +5214,11 @@ PrefabInstance:
       propertyPath: inGameMenu
       value: 
       objectReference: {fileID: 953567934}
+    - target: {fileID: 8477963131094003174, guid: c24dfa782f865b94cafa2fbda2002e74,
+        type: 3}
+      propertyPath: rocketScript
+      value: 
+      objectReference: {fileID: 201359139005003870}
     - target: {fileID: 8477963131094003174, guid: c24dfa782f865b94cafa2fbda2002e74,
         type: 3}
       propertyPath: playerSpawnPoint

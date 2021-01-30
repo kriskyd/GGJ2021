@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviour, IRestorable
 
 	public void DespawnEnemy()
     {
-		EnemiesManager.DespawnEnemy(this);
+		if (EnemiesManager != null) EnemiesManager.DespawnEnemy(this);
     }
 
 	public void SetCollapsingTween()

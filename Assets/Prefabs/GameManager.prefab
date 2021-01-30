@@ -43,6 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1deea79b97bd42f4fbc851f25945deaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rocketPartPositions: {fileID: 11400000, guid: 8c76afcf1e64eeb43ac7e177740045c8,
+    type: 2}
+  inGameMenu: {fileID: 0}
   playerPrefab: {fileID: 60991453259533084, guid: f94ec99eadb633f4aa35fac2b04423c3,
     type: 3}
   playerSpawnPoint: {fileID: 0}
