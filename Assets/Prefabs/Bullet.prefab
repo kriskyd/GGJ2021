@@ -223,10 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e403d39fa9dd043925d0b9172bb6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 50
   forward: {x: 0, y: 1, z: 0}
   lifeTime: 3
   damage: 10
+  rigidbody: {fileID: 7774662029303460151}
 --- !u!54 &7774662029303460151
 Rigidbody:
   m_ObjectHideFlags: 0
