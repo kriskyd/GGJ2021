@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MountRocketPartActionProvider
   m_EditorClassIdentifier: 
   actionName: 
-  maxMountDistance: 2
+  maxMountDistance: 5
   rocketPartHolderValue: {fileID: 11400000, guid: c8387637a8453df4b81550ab6491408d,
     type: 2}
   rocketValue: {fileID: 11400000, guid: 91e3676968096d840b78aaa24fbaafc3, type: 2}

@@ -9,6 +9,7 @@ namespace PlayerActions
 		private RocketPartHolderValue rocketPartHolderValue;
 		private RocketValue rocketValue;
 		private Vector3Value playerPosition;
+		private RocketSystem.TempRocketScript rocketScript;
 
 		public MountRocketPartAction(string actionName, float maxMountDistance, RocketPartHolderValue rocketPartHolderValue, RocketValue rocketValue, Vector3Value playerPosition) : base(actionName)
 		{
@@ -16,9 +17,10 @@ namespace PlayerActions
 			this.rocketPartHolderValue = rocketPartHolderValue;
 			this.rocketValue = rocketValue;
 			this.playerPosition = playerPosition;
+			rocketScript = /*this.rocketValue.Value ??*/ GameManager.Instance.RocketScript;
 		}
 
-		public override bool CanPerformAction => rocketPartHolderValue.Value.PlayerHoldsPart && (Vector3.Distance(playerPosition, rocketValue.Value.transform.position) < maxMountDistance);
+		public override bool CanPerformAction => rocketPartHolderValue.Value.PlayerHoldsPart && (Vector3.Distance(playerPosition, rocketScript.transform.position) < maxMountDistance);
 
 		public override void Perform()
 		{

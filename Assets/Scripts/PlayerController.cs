@@ -35,7 +35,15 @@ public class PlayerController : MonoBehaviour
 	private bool useAction;
 
 	private int _hp;
-	public int HP { get => _hp; }
+	public int HP
+	{
+		get => _hp;
+		set
+		{
+			_hp = value;
+			OnHPChanged?.Invoke(value);
+		}
+	}
 
 	private bool _isAlive = true;
 	public bool IsAlive { get => _isAlive; }
@@ -56,6 +64,8 @@ public class PlayerController : MonoBehaviour
 	/// Shoot event that uses bullet transform as parameter.
 	/// </summary>
 	public event Action<Transform> OnShoot;
+
+	public event Action<int> OnHPChanged;
 
 	private void Awake()
 	{
@@ -181,5 +191,6 @@ public class PlayerController : MonoBehaviour
 		animator.SetBool(deadBoolName, true);
 		_isAlive = false;
 		navMeshAgent.enabled = false;
+		GameManager.Instance.GameOver();
 	}
 }

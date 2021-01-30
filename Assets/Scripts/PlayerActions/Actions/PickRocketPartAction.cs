@@ -21,13 +21,17 @@ namespace PlayerActions
 			this.rocketPartHolderValue = rocketPartHolderValue;
 		}
 
-		public override bool CanPerformAction => !rocketPartHolderValue.Value.PlayerHoldsPart && rocketPartPositions.Value.Any(rocketPartPosition => Vector3.Distance(rocketPartPosition, playerPosition) < maxPickUpDistance);
+		public override bool CanPerformAction => !rocketPartHolderValue.Value.PlayerHoldsPart && RocketPart.AllRocketParts.Any(part => Vector3.Distance(rocketPartPositions[part.Idx], playerPosition) < maxPickUpDistance && part.gameObject.activeInHierarchy);
 
 		public override void Perform()
 		{
-			RocketPart rocketPart = RocketPart.AllRocketParts.OrderBy(part => Vector3.Distance(part.transform.position, playerPosition)).First();
+			var parts = RocketPart.AllRocketParts.Where((rpart) => rpart.gameObject.activeInHierarchy).OrderBy(part => Vector3.Distance(part.transform.position, playerPosition));
 
-			rocketPartHolderValue.Value.PickUpRocketPart(rocketPart);
+			if (parts != null && parts.Count() > 0)
+			{
+				RocketPart rocketPart = parts.First();
+				rocketPartHolderValue.Value.PickUpRocketPart(rocketPart);
+			}
 		}
 	}
 }

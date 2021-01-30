@@ -16,6 +16,8 @@ namespace RocketSystem
 		private ListVector3Value rocketPartPositions;
 
 		private int idx = -1;
+		public int Idx { get => idx; }
+
 		private Vector3 lastPosition;
 
 		public RocketPartData RocketPartData => rocketPartData;

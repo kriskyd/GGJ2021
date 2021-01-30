@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1823e182e33d8e4980e9b732719ea29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealtToPlayer: 10
+  damageDealtToPlayer: 1
   enemyCollider: {fileID: 6417223943113128297}
   animator: {fileID: 9011648103030661363}
   navMeshAgent: {fileID: 968154561584194284}
@@ -445,7 +445,7 @@ MonoBehaviour:
     type: 2}
   dieStance: {fileID: 11400000, guid: 7ce39ab5cbe22a14a95428c132c44b56, type: 2}
   idleStance: {fileID: 11400000, guid: 1ae9f49e556a3f743b72cd8c64708d93, type: 2}
-  maxHP: 100
+  maxHP: 50
 --- !u!195 &968154561584194284
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -1,15 +1,19 @@
 ﻿using ObjectPooling;
 using SA.ScriptableData;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
-using Random = UnityEngine.Random;
 
 public class EnemiesManager : MonoBehaviour
 {
 	[SerializeField]
-	private List<ObjectPool> enemiesPools = new List<ObjectPool>();
+	private TMP_Text nextWaveTimerText;
+	[SerializeField]
+	private int spawnDelayInSeconds = 30;
+	[SerializeField]
+	private List<EnemiesPool> enemiesPools = new List<EnemiesPool>();
 	[SerializeField]
 	private Vector3Value playerPosition;
 	[SerializeField]
@@ -21,56 +25,47 @@ public class EnemiesManager : MonoBehaviour
 	[Space()]
 	[Header("Debug values")]
 	[SerializeField]
-	private int minEnemiesToSpawn = 3;
-	[SerializeField]
-	private int maxEnemiesToSpawn = 15;
-	[SerializeField]
 	private Bounds spawnBounds = new Bounds(Vector3.zero, Vector3.up * 2);
 	[SerializeField]
 	private Bounds excludedSpawnBounds = new Bounds(Vector3.zero, Vector3.up);
 
 	public Vector3 PlayerPosition => playerPosition.Value;
 	public Vector3 RocketPosition => rocketPosition.Value;
+	public List<EnemyPoolData> SpawnedEnemies => spawnedEnemies;
+
+	public static EnemiesManager Instance { get; private set; }
+
+	private void Awake()
+	{
+		Instance = this;
+	}
 
 	private void Start()
 	{
 		playerPosition.ValueChanged += PlayerPosition_ValueChanged;
 
-		SpawnRandomly();
+		SpawnStartingEnemies();
+		StartCoroutine(WavesSpawning());
 	}
 
-	private bool TrySpawnEnemy(ObjectPool enemiesPool, Vector3 position, out Enemy enemy)
+	private IEnumerator WavesSpawning()
 	{
-		enemy = null;
+		float awaitingTime = spawnDelayInSeconds;
 
-		if(enemiesPool.UsedObjectCount == enemiesPool.MaxPoolSize)
+		while(true)
 		{
-			return false;
+			while(awaitingTime > 0f)
+			{
+				awaitingTime -= Time.deltaTime;
+
+				nextWaveTimerText.text = string.Format("{0:00}:{1:00}", awaitingTime / 60, awaitingTime % 60);
+
+				yield return null;
+			}
+
+			SpawnStartingEnemies();
+			awaitingTime += spawnDelayInSeconds;
 		}
-
-		position = GetValidPosition(position);
-
-		GameObject gameObject = enemiesPool.Spawn(position);
-
-		enemy = gameObject.GetComponent<Enemy>();
-		enemy.EnemiesManager = this;
-
-		spawnedEnemies.Add(new EnemyPoolData(enemy, enemiesPool));
-
-		return true;
-	}
-
-	private Vector3 GetValidPosition(Vector3 position)
-	{
-		float range = 0.05f;
-		NavMeshHit hit = new NavMeshHit();
-
-		while(!NavMesh.SamplePosition(position, out hit, range, NavMesh.AllAreas))
-		{
-			range += 0.05f;
-		}
-
-		return hit.position;
 	}
 
 	public void DespawnEnemy(Enemy enemy)
@@ -86,9 +81,9 @@ public class EnemiesManager : MonoBehaviour
 	{
 		foreach(var spawnedEnemy in spawnedEnemies)
 		{
-			if (spawnedEnemy.Enemy.CurrentStance != Stance.Die)
+			if(spawnedEnemy.Enemy.CurrentStance != Stance.Die)
 			{
-				if (Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+				if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
 				{
 					spawnedEnemy.Enemy.SetStance(Stance.StealRocketPart);
 				}
@@ -100,7 +95,7 @@ public class EnemiesManager : MonoBehaviour
 		}
 	}
 
-	private struct EnemyPoolData
+	public struct EnemyPoolData
 	{
 		public Enemy Enemy { private set; get; }
 		public ObjectPool ObjectPool { private set; get; }
@@ -113,25 +108,11 @@ public class EnemiesManager : MonoBehaviour
 	}
 
 	#region Debug
-	public void SpawnRandomly()
+	public void SpawnStartingEnemies()
 	{
 		foreach(var enemiesPool in enemiesPools)
 		{
-			int random = Random.Range(minEnemiesToSpawn, maxEnemiesToSpawn + 1);
-
-			for(int i = 0; i < random; i++)
-			{
-				Vector3 randomPosition = Vector3.zero;
-
-				while(excludedSpawnBounds.Contains(randomPosition))
-				{
-					float x = Random.Range(spawnBounds.center.x - spawnBounds.extents.x, spawnBounds.center.x + spawnBounds.extents.x);
-					float z = Random.Range(spawnBounds.center.z - spawnBounds.extents.z, spawnBounds.center.z + spawnBounds.extents.z);
-					randomPosition = Vector3.right * x + Vector3.forward * z;
-				}
-
-				TrySpawnEnemy(enemiesPool, randomPosition, out Enemy enemy);
-			}
+			enemiesPool.SpawnStartingEnemies(spawnBounds, excludedSpawnBounds);
 		}
 	}
 
