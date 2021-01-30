@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 	[SerializeField] private Vector3 forward;
 	[SerializeField] private float lifeTime;
 	[SerializeField] private int damage;
+	[SerializeField] private Rigidbody rigidbody;
 
 	private float lifeTimeBackup;
 
@@ -23,7 +24,7 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 
 	private void FixedUpdate()
 	{
-		transform.Translate(forward * speed * Time.fixedDeltaTime, Space.Self);
+		rigidbody.MovePosition(transform.position + transform.up * speed * Time.fixedDeltaTime);
 	}
 
 	private void Update()
