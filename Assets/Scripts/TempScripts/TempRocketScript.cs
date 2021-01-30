@@ -1,15 +1,21 @@
 ﻿using SA.ScriptableData;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class TempRocketScript : MonoBehaviour
+namespace RocketSystem
 {
-	[SerializeField]
-	private Vector3Value rocketPosition;
-
-	private Vector3 lastPosition;
-
-	private void Awake()
+	public class TempRocketScript : MonoBehaviour
 	{
-		rocketPosition.Value = transform.position;
+		[SerializeField]
+		private Vector3Value rocketPosition;
+		[SerializeField]
+		private List<RocketPartSlot> partsPlacementPositions = new List<RocketPartSlot>();
+
+		private Vector3 lastPosition;
+
+		private void Awake()
+		{
+			rocketPosition.Value = transform.position;
+		}
 	}
 }

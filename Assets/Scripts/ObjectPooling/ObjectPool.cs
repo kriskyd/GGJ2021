@@ -9,12 +9,20 @@ namespace ObjectPooling
         #region Variables
 
         [SerializeField]
+        private string poolID;
+
+        [SerializeField]
         private GameObject pooledGameObject = null;
 
         [SerializeField]
         private int _minPoolSize = 0;
         /// <summary>Minimal size of this ObjectPool.</summary>
         public int MinPoolSize { get { return _minPoolSize; } }
+
+        [SerializeField]
+        private bool _limitPoolSize = false;
+        /// <summary>Should pool size be limited to max pool size.</summary>
+        public bool LimitPoolSize { get { return _limitPoolSize; } }
 
         [SerializeField]
         private int _maxPoolSize = 1;
@@ -80,6 +88,7 @@ namespace ObjectPooling
             if (pooledGameObject != null)
             {
                 Initialize(pooledGameObject);
+                ObjectPoolManager.Instance?.RegisterPool(poolID, this);
             }
         }
 
@@ -123,7 +132,11 @@ namespace ObjectPooling
 
         private bool Expand()
         {
-            int newInstancesCount = (_poolSize + _poolExpandingSize) < _maxPoolSize ? _poolExpandingSize : (_maxPoolSize - _poolSize);
+            int newInstancesCount = _poolExpandingSize;
+            if (_limitPoolSize && (_poolSize + _poolExpandingSize < _maxPoolSize))
+            {
+                newInstancesCount = _maxPoolSize - _poolSize;
+            }
             if (newInstancesCount <= 0) return false;
             for (int i = 0; i < newInstancesCount; ++i)
             {
