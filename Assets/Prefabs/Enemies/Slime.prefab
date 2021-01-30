@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1823e182e33d8e4980e9b732719ea29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 95471671811264702}
   navMeshAgent: {fileID: 3460269907719039483}
   attackPlayerStance: {fileID: 11400000, guid: 514455da298bf5d448c45c16d3b29a01, type: 2}
   stealRocketPartStance: {fileID: 11400000, guid: a00a665fd18618f48a9aab38d1fcf211,

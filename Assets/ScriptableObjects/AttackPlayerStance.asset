@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AttackPlayerStance
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 11400000, guid: f778f0a31c37b374eb63f87f9bdaa51f, type: 2}
+  attackDistance: 2
