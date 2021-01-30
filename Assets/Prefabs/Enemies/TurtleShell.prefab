@@ -886,7 +886,7 @@ MonoBehaviour:
     type: 2}
   dieStance: {fileID: 11400000, guid: 7ce39ab5cbe22a14a95428c132c44b56, type: 2}
   idleStance: {fileID: 11400000, guid: 1ae9f49e556a3f743b72cd8c64708d93, type: 2}
-  maxHP: 100
+  maxHP: 30
 --- !u!195 &2764631713374688881
 NavMeshAgent:
   m_ObjectHideFlags: 0
