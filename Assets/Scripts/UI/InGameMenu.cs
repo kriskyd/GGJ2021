@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InGameMenu : TemporalSingleton<InGameMenu>
 {
+	[SerializeField] private GameObject background;
 	[SerializeField] private TextMeshProUGUI gameStatusLabel;
 	[SerializeField] private GameObject menuPanel;
 	[SerializeField] private GameObject controlsPanel;
@@ -19,6 +20,7 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 		menuControl.CreateButton("Exit Game", ExitGame);
 
 		gameObject.SetActive(false);
+		background.SetActive(true);
 	}
 
 	private void Update()

@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2c1c32da91a754aa3e7da5d869f4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 1428519801735208849}
   gameStatusLabel: {fileID: 4859958887010802912}
   menuPanel: {fileID: 1428519801771117172}
   controlsPanel: {fileID: 1428519800995343146}
@@ -417,7 +418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1428519801735208854
 RectTransform:
   m_ObjectHideFlags: 0
