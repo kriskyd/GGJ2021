@@ -137,7 +137,7 @@ public class Enemy : MonoBehaviour, IRestorable
 		if (collapsingTween != null) collapsingTween.Kill();
 		collapsingTween = transform.DOMoveY(-50.0f, 10.0f);
 		collapsingTween.SetDelay(3.0f);
-		collapsingTween.onComplete = () => { DespawnEnemy(); collapsingTween.Kill(); collapsingTween = null; };
+		collapsingTween.onComplete = () => { DespawnEnemy(); };
 	}
 
 	public void PerformAttack()
