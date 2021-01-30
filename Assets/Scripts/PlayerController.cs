@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Vector3Value aimPosition;
 	[SerializeField] private float walkSpeed = 4f;
 	[SerializeField] private float runSpeed = 7f;
+	[SerializeField] private float sideWalkModifier = 0.5f;
 	[SerializeField] private float movementSpeedLerp = 0.2f;
 	[SerializeField] private Vector3Value playerFlatVelocity;
 	[SerializeField] private AudioClip walkSound;
@@ -90,7 +91,8 @@ public class PlayerController : MonoBehaviour
 		movementSpeed = Mathf.Lerp(movementSpeed, isRunning ? runSpeed : walkSpeed, movementSpeedLerp);
 
 		playerFlatVelocity.Value = move * movementSpeed;
-		move = transform.rotation * move;
+		move = transform.rotation * (new Vector3(-move.x, 0f, move.z));
+		move.x = -move.x;
 		animator.SetFloat(animForwardParam, move.z);
 		animator.SetFloat(animRightParam, move.x);
 		animator.speed = isRunning ? runSpeed / walkSpeed : 1f;
