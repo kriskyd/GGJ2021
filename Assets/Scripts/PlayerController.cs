@@ -1,6 +1,8 @@
-﻿using ObjectPooling;
+﻿using System;
+using ObjectPooling;
 using SA.ScriptableData;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,7 +17,6 @@ public class PlayerController : MonoBehaviour
 
 	[Header("Shooting")]
 
-	[SerializeField] private ObjectPooling.ObjectPool bulletPool;
 	[SerializeField] private Transform bulletSpawnTransform;
 	[SerializeField] private int maxBulletsPerSec = 9;
 
@@ -35,6 +36,17 @@ public class PlayerController : MonoBehaviour
 	private bool isShooting;
 	private float shootingSpeed;
 	private float lastShootTime;
+	private NavMeshAgent navMeshAgent;
+
+	/// <summary>
+	/// Shoot event that uses bullet transform as parameter.
+	/// </summary>
+	public event Action<Transform> OnShoot;
+
+	private void Awake()
+	{
+		navMeshAgent = GetComponent<NavMeshAgent>();
+	}
 
 	private void Update()
 	{
@@ -68,14 +80,15 @@ public class PlayerController : MonoBehaviour
 
 	private void MovePlayer()
 	{
-		Vector3 rotated = playerFlatVelocity.Value * Time.deltaTime;
-		transform.Translate(rotated, Space.World);
+		Vector3 moveOffset = playerFlatVelocity.Value * Time.deltaTime;
+		navMeshAgent.Move(moveOffset);
+		navMeshAgent.SetDestination(transform.position + moveOffset);
 		playerPosition.Value = transform.position;
 	}
 
 	private void GetAimPoint()
 	{
-		Plane plane = new Plane(Vector3.up, 0f);
+		Plane plane = new Plane(Vector3.up, -transform.position.y);
 
 		Ray ray = CameraController.Instance.Camera.ScreenPointToRay(Input.mousePosition);
 		if(plane.Raycast(ray, out float distance))
@@ -94,7 +107,7 @@ public class PlayerController : MonoBehaviour
 		float shootAnimSpeed = isShooting ? 1f : 0f;
 		float timeBetweenShots = 1f / maxBulletsPerSec;
 
-		shootingSpeed *= shootAnimSpeed * 1f / animator.speed;
+		shootingSpeed = shootAnimSpeed * 1f / animator.speed;
 		animator.SetFloat(animShootParam, shootingSpeed);
 
 		if(!isShooting)
@@ -110,5 +123,7 @@ public class PlayerController : MonoBehaviour
 	private void CreateBullet()
 	{
 		var bullet = ObjectPoolManager.Instance?.GetPool("bullet")?.Spawn(bulletSpawnTransform.position, bulletSpawnTransform.rotation);
+
+		OnShoot?.Invoke(bullet.transform);
 	}
 }
