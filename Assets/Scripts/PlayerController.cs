@@ -1,14 +1,23 @@
-﻿using SA.ScriptableData;
+﻿using ObjectPooling;
+using SA.ScriptableData;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	[Header("Movement")]
+
 	[SerializeField] private Vector3Value playerPosition;
 	[SerializeField] private Vector3Value aimPosition;
 	[SerializeField] private float walkSpeed = 4f;
 	[SerializeField] private float runSpeed = 7f;
-	[SerializeField] private float speedLerp = 0.2f;
+	[SerializeField] private float movementSpeedLerp = 0.2f;
 	[SerializeField] private Vector3Value playerFlatVelocity;
+
+	[Header("Shooting")]
+
+	[SerializeField] private ObjectPooling.ObjectPool bulletPool;
+	[SerializeField] private Transform bulletSpawnTransform;
+	[SerializeField] private int maxBulletsPerSec = 9;
 
 	[Header("Input")]
 
@@ -22,8 +31,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private string animShootParam;
 
 	private bool isRunning;
+	private float movementSpeed;
 	private bool isShooting;
-	private float currentSpeed;
+	private float shootingSpeed;
+	private float lastShootTime;
 
 	private void Update()
 	{
@@ -31,6 +42,7 @@ public class PlayerController : MonoBehaviour
 		MovePlayer();
 		GetAimPoint();
 		RotatePlayer();
+		Shoot();
 	}
 
 	private void GetInput()
@@ -44,13 +56,12 @@ public class PlayerController : MonoBehaviour
 		isRunning = Input.GetKey(input.RunKey);
 		move.z += (isRunning && move.z > 0f) ? 0.5f : 0f;
 		move = move.normalized * (isRunning && move.z > 0f ? 1f : 0.5f);
-		currentSpeed = Mathf.Lerp(currentSpeed, isRunning ? runSpeed : walkSpeed, speedLerp);
+		movementSpeed = Mathf.Lerp(movementSpeed, isRunning ? runSpeed : walkSpeed, movementSpeedLerp);
 
 		isShooting = Input.GetKey(input.ShootKey);
-		playerFlatVelocity.Value = move * currentSpeed;
+		playerFlatVelocity.Value = move * movementSpeed;
 		animator.SetFloat(animForwardParam, move.z);
 		animator.SetFloat(animRightParam, move.x);
-		animator.SetFloat(animShootParam, isShooting ? (isRunning ? walkSpeed / runSpeed : 1f) : 0f);
 		animator.speed = isRunning ? runSpeed / walkSpeed : 1f;
 	}
 
@@ -75,5 +86,30 @@ public class PlayerController : MonoBehaviour
 	private void RotatePlayer()
 	{
 		transform.LookAt(aimPosition);
+	}
+
+	private void Shoot()
+	{
+		float shootAnimSpeed = isShooting ? 1f : 0f;
+		float timeBetweenShots = 1f / maxBulletsPerSec;
+
+		shootingSpeed *= shootAnimSpeed * 1f / animator.speed;
+		animator.SetFloat(animShootParam, shootingSpeed);
+
+		if(!isShooting)
+			return;
+
+		if(Time.time - lastShootTime > timeBetweenShots)
+		{
+			lastShootTime = Time.time;
+			CreateBullet();
+		}
+
+
+	}
+
+	private void CreateBullet()
+	{
+		var bullet = ObjectPoolManager.Instance?.GetPool("bullet")?.Spawn(bulletSpawnTransform.position, bulletSpawnTransform.rotation);
 	}
 }

@@ -5,6 +5,8 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour, IRestorable
 {
 	[SerializeField]
+	private Animator animator;
+	[SerializeField]
 	private NavMeshAgent navMeshAgent;
 	[SerializeField]
 	private StanceSO attackPlayerStance;
@@ -14,6 +16,7 @@ public class Enemy : MonoBehaviour, IRestorable
 	private IStance currentStance = null;
 
 	public NavMeshAgent NavMeshAgent => navMeshAgent;
+	public Animator Animator => animator;
 
 	private void Awake()
 	{
