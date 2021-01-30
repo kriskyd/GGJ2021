@@ -12,6 +12,8 @@ public class EnemiesManager : MonoBehaviour
 	private List<ObjectPool> enemiesPools = new List<ObjectPool>();
 	[SerializeField]
 	private Vector3Value playerPosition;
+	[SerializeField]
+	private Vector3Value rocketPosition;
 
 	[SerializeField]
 	private List<EnemyPoolData> spawnedEnemies = new List<EnemyPoolData>();
@@ -26,6 +28,9 @@ public class EnemiesManager : MonoBehaviour
 	private Bounds spawnBounds = new Bounds(Vector3.zero, Vector3.up * 2);
 	[SerializeField]
 	private Bounds excludedSpawnBounds = new Bounds(Vector3.zero, Vector3.up);
+
+	public Vector3 PlayerPosition => playerPosition.Value;
+	public Vector3 RocketPosition => rocketPosition.Value;
 
 	private void Start()
 	{
@@ -80,7 +85,14 @@ public class EnemiesManager : MonoBehaviour
 	{
 		foreach(var spawnedEnemy in spawnedEnemies)
 		{
-			spawnedEnemy.Enemy.FollowPlayer(playerPosition.Value);
+			if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+			{
+				spawnedEnemy.Enemy.SetStance(this, Stance.StealRocketPart);
+			}
+			else
+			{
+				spawnedEnemy.Enemy.SetStance(this, Stance.AttackPlayer);
+			}
 		}
 	}
 

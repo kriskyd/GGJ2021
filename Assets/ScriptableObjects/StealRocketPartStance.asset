@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 188f74fb06943e94dacf72fcb85845d5, type: 3}
-  m_Name: PlayerPosition
+  m_Script: {fileID: 11500000, guid: 5cc89751b1b79f849b5926a10c416d57, type: 3}
+  m_Name: StealRocketPartStance
   m_EditorClassIdentifier: 
-  value: {x: 0, y: 0, z: 0}
+  rocketPosition: {fileID: 11400000, guid: 567e6206360a19340b3f686fdb30457a, type: 2}
