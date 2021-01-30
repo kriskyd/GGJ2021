@@ -998,7 +998,7 @@ MonoBehaviour:
   runSpeed: 7
   movementSpeedLerp: 0.2
   playerFlatVelocity: {fileID: 11400000, guid: ff5d4ab928d73374a9966761ceff3cc4, type: 2}
-  walkSound: {fileID: 8300000, guid: 0e05ec9aeac339349b7855ad9203fac6, type: 3}
+  walkSound: {fileID: 8300000, guid: 2cbf40a5a41348b4d8883c37ee22af65, type: 3}
   bulletSpawnTransform: {fileID: 2307877350792975030}
   maxBulletsPerSec: 9
   animator: {fileID: 60991453250189470}
