@@ -1,4 +1,5 @@
 ﻿using SA.ScriptableData.Collection;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace RocketSystem
 {
 	public class RocketPart : MonoBehaviour
 	{
+		public event Action<RocketPart> PickedUp;
+		public event Action<RocketPart> DroppedDown;
+
 		public static List<RocketPart> AllRocketParts = new List<RocketPart>();
 
 		[SerializeField]
@@ -21,6 +25,16 @@ namespace RocketSystem
 		private Vector3 lastPosition;
 
 		public RocketPartData RocketPartData => rocketPartData;
+
+		public void PickUp()
+		{
+			PickedUp?.Invoke(this);
+		}
+
+		public void DropDown()
+		{
+			DroppedDown?.Invoke(this);
+		}
 
 		private void Awake()
 		{
