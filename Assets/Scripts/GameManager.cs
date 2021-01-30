@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private InGameMenu inGameMenu;
 
     [SerializeField]
     public GameObject playerPrefab;
@@ -24,6 +26,14 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         InitializeGame();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            inGameMenu.Show();
+        }
     }
 
     private void InitializeGame()
