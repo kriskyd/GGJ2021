@@ -109,7 +109,7 @@ MonoBehaviour:
   _minPoolSize: 100
   _limitPoolSize: 0
   _maxPoolSize: 100
-  _poolExpandingSize: 0
+  _poolExpandingSize: 1
   _isPoolShrinkingEnabled: 0
   _poolShrinkingSize: 1
 --- !u!1 &6744263919829693230

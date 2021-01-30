@@ -241,6 +241,7 @@ namespace ObjectPooling
             }
 
             pooledObject.gameObject.SetActive(false);
+            pooledObject.transform.SetParent(pooledObject.Pool.transform);
             pooledObject.Restore();
             usedInstances.Remove(pooledObject);
             unUsedInstances.Enqueue(pooledObject);
