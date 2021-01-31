@@ -80,11 +80,11 @@ public class GameManager : MonoBehaviour
 
     public void GameWon()
     {
-        inGameMenu.Show("Game won", true);
+        inGameMenu.Show("Game won", disableBackButton: true, win: true);
     }
 
     public void GameOver()
     {
-        inGameMenu.Show("Game over", true);
+        inGameMenu.Show("Game over", disableBackButton: true, lose: true);
     }
 }

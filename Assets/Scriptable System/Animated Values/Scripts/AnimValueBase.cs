@@ -28,7 +28,17 @@ namespace SA.AnimatedValues
 			private set;
 		}
 
-		public T Target => target;
+		public T Target
+		{
+			get => target;
+			set
+			{
+				if(!target.Equals(value))
+				{
+					BeginAnimating(this.Value, value, this.speed);
+				}
+			}
+		}
 
 		public T Value
 		{

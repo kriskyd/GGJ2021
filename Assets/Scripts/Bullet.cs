@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 {
+	[SerializeField] private GameObject hitParticlesPrefab;
 	[SerializeField] private float speed;
 	[SerializeField] private Vector3 forward;
 	[SerializeField] private float lifeTime;
@@ -43,6 +44,7 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
         {
 			enemy.GotHit(damage);
 		}
-		ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
+		Instantiate(hitParticlesPrefab, transform.position, Quaternion.Inverse(transform.rotation));
+		ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject); 
 	}
 }

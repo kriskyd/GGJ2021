@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e403d39fa9dd043925d0b9172bb6db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticlesPrefab: {fileID: 8751118293012992542, guid: 16a2cac391bace74aa5bc18d36b755a0,
+    type: 3}
   speed: 50
   forward: {x: 0, y: 1, z: 0}
   lifeTime: 3

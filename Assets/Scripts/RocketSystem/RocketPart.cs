@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RocketSystem
 {
-	public class RocketPart : MonoBehaviour
+	public class RocketPart : MonoBehaviour, IScreenMarkable
 	{
 		public event Action<RocketPart> PickedUp;
 		public event Action<RocketPart> DroppedDown;
@@ -25,6 +25,8 @@ namespace RocketSystem
 		private Vector3 lastPosition;
 
 		public RocketPartData RocketPartData => rocketPartData;
+
+		public bool ShowMarkerOnScreen => !gameObject.activeInHierarchy;
 
 		public void PickUp()
 		{

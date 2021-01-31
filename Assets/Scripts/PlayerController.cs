@@ -175,14 +175,14 @@ public class PlayerController : MonoBehaviour, IDamageable
 
 	public void GotHit(IDamageDealer damageDealer, int damage)
 	{
-		if(_hp - damage <= 0)
+		if(HP - damage <= 0)
 		{
 			Die();
 		}
 		else
 		{
 			animator.SetTrigger(hitTriggerName);
-			_hp -= damage;
+			HP -= damage;
 		}
 	}
 

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class InGameMenu : TemporalSingleton<InGameMenu>
 {
+	[SerializeField] private Sprite defeatBackgroundSprite;
+	[SerializeField] private Sprite winBackgroundSprite;
 	[SerializeField] private GameObject background;
 	[SerializeField] private TextMeshProUGUI gameStatusLabel;
 	[SerializeField] private GameObject menuPanel;
@@ -71,10 +73,24 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 	}
 
 
-	public void Show(string text = "Menu", bool disableBackButton = false)
+	public void Show(string text = "Menu", bool disableBackButton = false, bool win = false, bool lose = false)
 	{
 		gameStatusLabel.text = text;
         backToGameButton.gameObject.SetActive(!disableBackButton);
+		if(win)
+        {
+			if(background.TryGetComponent(out UnityEngine.UI.Image image))
+			{
+				image.sprite = winBackgroundSprite;
+            }
+        }
+		else if(lose)
+        {
+			if(background.TryGetComponent(out UnityEngine.UI.Image image))
+			{
+				image.sprite = defeatBackgroundSprite;
+            }
+        }
 		gameObject.SetActive(true);
 		menuPanel.SetActive(true);
 		Time.timeScale = 0f;
