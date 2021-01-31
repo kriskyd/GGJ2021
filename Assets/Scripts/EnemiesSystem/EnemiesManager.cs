@@ -61,8 +61,9 @@ public class EnemiesManager : MonoBehaviour
 			while(awaitingTime > 0f)
 			{
 				awaitingTime -= Time.deltaTime;
-
-				nextWaveTimerText.text = string.Format("{0:00}:{1:00}", awaitingTime / 60, awaitingTime % 60);
+				int min = (int)(awaitingTime / 60);
+				int sec = (int)(awaitingTime % 60);
+				nextWaveTimerText.text = string.Format("{0:00}:{1:00}", min, sec);
 
 				yield return null;
 			}

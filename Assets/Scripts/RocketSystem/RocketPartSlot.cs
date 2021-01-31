@@ -29,6 +29,21 @@ namespace RocketSystem
 			for (int i = 0; i < meshRenderer.materials.Length; ++i)
             {
 				originalMaterials[i] = meshRenderer.materials[i];
+				if(missingPartMaterials == null)
+				{
+					UnityEngine.Debug.LogError("missingPartMaterials[] is null");
+					continue;
+				}
+				if(GameManager.Instance == null)
+				{
+					UnityEngine.Debug.LogError("GameManager.Instance is null");
+					continue;
+				}
+				if(GameManager.Instance.MissingPartMaterial == null)
+				{
+					UnityEngine.Debug.LogError("GameManager.Instance.MissingPartMaterial is null");
+					continue;
+				}
 				missingPartMaterials[i] = GameManager.Instance.MissingPartMaterial;
             }
 

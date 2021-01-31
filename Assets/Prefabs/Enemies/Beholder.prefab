@@ -493,7 +493,7 @@ MonoBehaviour:
   placePartInJunkPileStance: {fileID: 11400000, guid: 55bee590676b75e4a9715aa68fd46ea6,
     type: 2}
   enemyPartHolder: {fileID: 3921258685164061446}
-  maxHP: 50
+  maxHP: 30
 --- !u!195 &968154561584194284
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ NavMeshAgent:
   m_Enabled: 0
   m_AgentTypeID: -334000983
   m_Radius: 0.75
-  m_Speed: 3.5
+  m_Speed: 10.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
