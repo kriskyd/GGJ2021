@@ -515,7 +515,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Programmers:\r\nNorbert B\u0142aszczyk (Whigle)\r\nKrzysztof Dziembowski
-    (Chant)\r\nMarcin Zieli\u0144ski (Ziel0n)\r\n\r\nEnviro Artist:\r\nWojciech \r\u015Awierk\n\r\nSound
+    (Chant)\r\nMarcin Zieli\u0144ski (Ziel0n)\r\n\r\nEnviro Artist:\r\nWojciech \u015Awierk\n\r\nSound
     Designer:\r\nMarcin Rusinowski (tooloud)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
