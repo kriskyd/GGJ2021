@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4585071963622048592}
   - component: {fileID: 5601113323869434856}
   - component: {fileID: 8945185936371002594}
+  - component: {fileID: 2959171103842295595}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_4"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2959171103842295595
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281447798518388286}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4005074219740649688, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}

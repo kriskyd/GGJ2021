@@ -143,6 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6744263919829693231}
+  - component: {fileID: 471526732192054964}
   m_Layer: 0
   m_Name: Empty
   m_TagString: Untagged
@@ -164,6 +165,27 @@ Transform:
   m_Father: {fileID: 6744263919892584253}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &471526732192054964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744263919829693230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07920719b4f15a34f911941d7bbbc2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolID: audio_source
+  pooledGameObject: {fileID: 8317275245875863109, guid: 42f4cfff01983fa42a209e29c6a7fe89,
+    type: 3}
+  _minPoolSize: 20
+  _limitPoolSize: 0
+  _maxPoolSize: 20
+  _poolExpandingSize: 1
+  _isPoolShrinkingEnabled: 0
+  _poolShrinkingSize: 1
 --- !u!1 &6744263919892584255
 GameObject:
   m_ObjectHideFlags: 0

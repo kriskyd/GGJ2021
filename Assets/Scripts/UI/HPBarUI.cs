@@ -43,7 +43,7 @@ public class HPBarUI : MonoBehaviour
 	{
 		for(int i = 0; i < allHPs.Count; i++)
 		{
-			allHPs[i].SetActive(i >= hp);
+			allHPs[i].SetActive(i <= hp);
 		}
 	}
 
