@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1807761306127942500}
   - component: {fileID: 8039884851471248174}
   - component: {fileID: 281665121866730266}
+  - component: {fileID: 7952371452125863205}
   m_Layer: 0
-  m_Name: 6
-  m_TagString: Untagged
+  m_Name: "Kamienie_Du\u017Ca_formacja_2"
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +82,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7952371452125863205
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001140472000051833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2352272465676470988, guid: d98afafaee5bcca42976b55857bd2472, type: 3}
 --- !u!1001 &3177856667909652463
 PrefabInstance:
   m_ObjectHideFlags: 0

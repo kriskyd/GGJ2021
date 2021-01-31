@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5699667859981733008}
   - component: {fileID: 4552706952922377138}
   - component: {fileID: 3231897517867799208}
+  - component: {fileID: 2093171997010980619}
   m_Layer: 0
   m_Name: Cube.050
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2093171997010980619
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077017344636245433}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8259417878425161692, guid: c18b0648ac452754d917d55491e3778d, type: 3}

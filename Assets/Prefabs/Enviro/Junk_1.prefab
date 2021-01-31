@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1941403092232016200}
   m_Layer: 0
   m_Name: Junk_1
-  m_TagString: Untagged
+  m_TagString: Enviro Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e01115f232c70f40a02ba0db0bfe279,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e01115f232c70f40a02ba0db0bfe279, type: 3}
 --- !u!4 &931245089038679029 stripped
@@ -278,6 +283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0917c5b97c2c8104cb41f789facbd16e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0917c5b97c2c8104cb41f789facbd16e, type: 3}
@@ -369,6 +379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
 --- !u!4 &772951243299230336 stripped
@@ -458,6 +473,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51cae274993b4a74d80696298048c8bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51cae274993b4a74d80696298048c8bf, type: 3}
@@ -549,6 +569,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b021f71affd1594383e3c27c5dd0486,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b021f71affd1594383e3c27c5dd0486, type: 3}
 --- !u!4 &772951243227570746 stripped
@@ -638,6 +663,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 111df18a451edaf45b4d1ac7921a2e65,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111df18a451edaf45b4d1ac7921a2e65, type: 3}
@@ -729,6 +759,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
 --- !u!4 &772951243125286941 stripped
@@ -818,6 +853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_9 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17c79a8df9a0d404eb262ed72f2de049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c79a8df9a0d404eb262ed72f2de049, type: 3}
@@ -909,6 +949,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95d49d9a7a9f0704385f8247a400faac,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d49d9a7a9f0704385f8247a400faac, type: 3}
 --- !u!4 &772951243033068977 stripped
@@ -998,6 +1043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
@@ -1089,6 +1139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
 --- !u!4 &772951242956535416 stripped
@@ -1178,6 +1233,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
@@ -1269,6 +1329,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
 --- !u!4 &772951242736274865 stripped
@@ -1358,6 +1423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_9 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17c79a8df9a0d404eb262ed72f2de049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c79a8df9a0d404eb262ed72f2de049, type: 3}
@@ -1449,6 +1519,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6b021f71affd1594383e3c27c5dd0486,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b021f71affd1594383e3c27c5dd0486, type: 3}
 --- !u!4 &772951242698070334 stripped
@@ -1538,6 +1613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95d49d9a7a9f0704385f8247a400faac,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d49d9a7a9f0704385f8247a400faac, type: 3}
@@ -1629,6 +1709,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
 --- !u!4 &772951242614577927 stripped
@@ -1718,6 +1803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e01115f232c70f40a02ba0db0bfe279,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e01115f232c70f40a02ba0db0bfe279, type: 3}
@@ -1809,6 +1899,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_8 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 111df18a451edaf45b4d1ac7921a2e65,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111df18a451edaf45b4d1ac7921a2e65, type: 3}
 --- !u!4 &772951242230586585 stripped
@@ -1898,6 +1993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17c79a8df9a0d404eb262ed72f2de049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c79a8df9a0d404eb262ed72f2de049, type: 3}
@@ -1989,6 +2089,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1236d6081f3768148a70b2cc3f15fa1b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1236d6081f3768148a70b2cc3f15fa1b, type: 3}
 --- !u!4 &772951241760185671 stripped
@@ -2078,6 +2183,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0917c5b97c2c8104cb41f789facbd16e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0917c5b97c2c8104cb41f789facbd16e, type: 3}
@@ -2169,6 +2279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e01115f232c70f40a02ba0db0bfe279,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e01115f232c70f40a02ba0db0bfe279, type: 3}
 --- !u!4 &772951241634259957 stripped
@@ -2258,6 +2373,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
@@ -2349,6 +2469,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c750f19507efbf44a1f3cab339c2a7d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c750f19507efbf44a1f3cab339c2a7d, type: 3}
 --- !u!4 &772951241351312023 stripped
@@ -2438,6 +2563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_8 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 111df18a451edaf45b4d1ac7921a2e65,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 111df18a451edaf45b4d1ac7921a2e65, type: 3}
@@ -2529,6 +2659,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Junk (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9e01115f232c70f40a02ba0db0bfe279,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e01115f232c70f40a02ba0db0bfe279, type: 3}
 --- !u!4 &2661165417509569110 stripped
@@ -2618,6 +2753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Junk_9 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17c79a8df9a0d404eb262ed72f2de049,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enviro Metal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c79a8df9a0d404eb262ed72f2de049, type: 3}

@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 	[SerializeField] private float lifeTime;
 	[SerializeField] private int damage;
 	[SerializeField] private Rigidbody rigidbody;
+	[SerializeField] private AudioClip hitRockSound;
+	[SerializeField] private AudioClip hitMetalSound;
 
 	private float lifeTimeBackup;
 
@@ -38,14 +40,39 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
 		}
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.TryGetComponent(out Enemy enemy))
-        {
-			enemy.GotHit(damage);
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.tag.Contains("Enviro"))
+		{
+			ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
+			var audio = ObjectPooling.ObjectPoolManager.Instance.GetPool("audio_source")?.Spawn(transform.position).GetComponent<AudioSource>();
+			if(other.CompareTag("Enviro Rock"))
+			{
+				audio.PlayOneShot(hitRockSound);
+				GameManager.Instance.Coroutines.StartWaitForSecondsRealtime(1f, () =>
+				{
+					audio.GetComponent<ObjectPooling.PooledObject>().Despawn();
+				});
+			}
+			else if(other.CompareTag("Enviro Rock"))
+			{
+				audio.PlayOneShot(hitMetalSound);
+				GameManager.Instance.Coroutines.StartWaitForSecondsRealtime(1f, () =>
+				{
+					audio.GetComponent<ObjectPooling.PooledObject>().Despawn();
+				});
+			}
 		}
-		var particle = ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet_splash")?.Spawn(transform.position);
-		particle.transform.LookAt(transform.position + transform.up);
-		ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
+		else
+		{
+			if(other.TryGetComponent(out Enemy enemy))
+			{
+				enemy.GotHit(damage);
+			}
+			var particle = ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet_splash")?.Spawn(transform.position);
+			particle.transform.LookAt(transform.position + transform.up);
+			ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
+		}
 	}
+
 }

@@ -230,6 +230,8 @@ MonoBehaviour:
   lifeTime: 3
   damage: 8
   rigidbody: {fileID: 7774662029303460151}
+  hitRockSound: {fileID: 8300000, guid: 01e0cc280b63c3a4fba6ac29de030f0c, type: 3}
+  hitMetalSound: {fileID: 8300000, guid: 53ea2a1bb43af14429a87e1763b39ead, type: 3}
 --- !u!54 &7774662029303460151
 Rigidbody:
   m_ObjectHideFlags: 0

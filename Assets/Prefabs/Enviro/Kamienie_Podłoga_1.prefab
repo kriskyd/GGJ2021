@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7515066529788561680}
   - component: {fileID: 3785659926497505969}
   - component: {fileID: 862233211937973269}
+  - component: {fileID: 8818493954523980497}
   m_Layer: 0
   m_Name: "Kamienie_Pod\u0142oga_1"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,6 +90,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8818493954523980497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3395266978294088107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2329056047041703686, guid: c18b0648ac452754d917d55491e3778d, type: 3}
 --- !u!1001 &598728477770399806
 PrefabInstance:
   m_ObjectHideFlags: 0
