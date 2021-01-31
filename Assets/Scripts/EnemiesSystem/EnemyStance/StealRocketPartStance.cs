@@ -17,7 +17,7 @@ public class StealRocketPartStance : StanceSO
 
 	public override void InitializeStance(Enemy enemy)
 	{
-		//throw new System.NotImplementedException();
+
 	}
 
 	public override void PerformStance(Enemy enemy)
@@ -38,11 +38,10 @@ public class StealRocketPartStance : StanceSO
 			enemy.NavMeshAgent.SetDestination(rocketPosition);
 			enemy.Animator.SetBool(walkBoolName, true);
 		}
-		//enemy.NavMeshAgent.SetDestination(rocketPosition);
 	}
 
 	public override void DeinitializeStance(Enemy enemy)
 	{
-		//throw new System.NotImplementedException();
+
 	}
 }

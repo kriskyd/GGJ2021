@@ -229,6 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6044275362424349639}
+  - component: {fileID: 5909485622305809213}
   m_Layer: 0
   m_Name: _JunkPilesManager
   m_TagString: Untagged
@@ -258,6 +259,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5909485622305809213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044275362424349638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c77bf74292b5e7498ec813c56bfce91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkPiles:
+  - {fileID: 938446592127116763}
+  - {fileID: 2476515808738162469}
+  - {fileID: 7203650455639892079}
+  - {fileID: 5555692006926435306}
+  - {fileID: 8455951167064598975}
+  - {fileID: 4235589036678937022}
+  - {fileID: 3865179216274976650}
+  - {fileID: 7184878797086829250}
 --- !u!1 &6810243991935784793
 GameObject:
   m_ObjectHideFlags: 0

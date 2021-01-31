@@ -1,11 +1,14 @@
 ﻿using DG.Tweening;
 using ObjectPooling;
 using RocketSystem;
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour, IRestorable, IDamageDealer
 {
+	public event Action<Enemy> Died;
+
 	[SerializeField]
 	private int damageDealtToPlayer;
 	[SerializeField]
@@ -110,6 +113,7 @@ public class Enemy : MonoBehaviour, IRestorable, IDamageDealer
 			case Stance.Die:
 				TryDropPart();
 				currentStance = dieStance;
+				Died?.Invoke(this);
 				break;
 			case Stance.Idle:
 				currentStance = idleStance;
@@ -167,10 +171,40 @@ public class Enemy : MonoBehaviour, IRestorable, IDamageDealer
 		return enemyPartHolder.TryDropPart();
 	}
 
-	public bool TryPlacePart(RocketPart rocketPart, JunkPile junkPile)
+	public bool TryPlacePart(JunkPile junkPile)
 	{
 		return enemyPartHolder.TryPlacePart(junkPile);
 	}
+
+#if UNITY_EDITOR
+	private void OnDrawGizmos()
+	{
+		Color color = Color.grey;
+		switch(currentStance.Stance)
+		{
+			case Stance.Idle:
+				color = Color.white;
+				break;
+			case Stance.AttackPlayer:
+				color = Color.red;
+				break;
+			case Stance.StealRocketPart:
+				color = Color.blue;
+				break;
+			case Stance.PlacePartInJunkPile:
+				color = Color.green;
+				break;
+			case Stance.Die:
+				color = Color.black;
+				break;
+			default:
+				break;
+		}
+
+		Gizmos.color = color;
+		Gizmos.DrawWireSphere(transform.position, 1f);
+	}
+#endif
 }
 
 public enum Stance

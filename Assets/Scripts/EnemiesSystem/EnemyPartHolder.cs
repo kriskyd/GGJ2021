@@ -1,4 +1,5 @@
 ﻿using RocketSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -52,4 +53,8 @@ public class EnemyPartHolder : MonoBehaviour
 		return true;
 	}
 
+	internal bool TryPlacePart(object holdedPart, JunkPile junkPile)
+	{
+		throw new NotImplementedException();
+	}
 }

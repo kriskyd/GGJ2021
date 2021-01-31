@@ -97,7 +97,7 @@ public class EnemiesManager : MonoBehaviour
 				{
 					spawnedEnemy.Enemy.SetStance(Stance.PlacePartInJunkPile);
 				}
-				if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition) && AnyPartAttachedToRocket())
+				else if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition) && AnyPartAttachedToRocket())
 				{
 					spawnedEnemy.Enemy.SetStance(Stance.StealRocketPart);
 				}

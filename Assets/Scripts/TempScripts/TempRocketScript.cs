@@ -54,7 +54,10 @@ namespace RocketSystem
 			currentRocketHealth--;
 			if(currentRocketHealth <= 0)
 			{
-				DismountRocketPart(enemy, mountedRocketParts.ElementAt(Random.Range(0, mountedRocketParts.Count)));
+				if(mountedRocketParts.Count > 0)
+				{
+					DismountRocketPart(enemy, mountedRocketParts.ElementAt(Random.Range(0, mountedRocketParts.Count)));
+				}
 				currentRocketHealth += 10;
 			}
 		}
