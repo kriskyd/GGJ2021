@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField]
+	[SerializeField]
     private RocketSystem.TempRocketScript rocketScript;
 
     [SerializeField]
@@ -33,12 +33,15 @@ public class GameManager : MonoBehaviour
     public RocketSystem.TempRocketScript RocketScript { get => rocketScript; }
     public PlayerController PlayerController { get; private set; }
 
+    public SA.Coroutines.Coroutines Coroutines { get; private set; }
+
 
     private int placedRocketParts = 0;
 
     private void Awake()
     {
         _instance = this;
+        Coroutines = new SA.Coroutines.Coroutines();
         InitializeGame();
     }
 

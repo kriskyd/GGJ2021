@@ -82,7 +82,7 @@ public class CameraController : TemporalSingleton<CameraController>
         {
             cameraTween.Kill(false);
         }
-        cameraTween = transform.DOMove(targetPosition + direction * distance, 1.0f / movingSpeed);
+        cameraTween = transform?.DOMove(targetPosition + direction * distance, 1.0f / movingSpeed);
         transform.rotation = Quaternion.LookRotation(-direction, Vector3.up);
     }
 
@@ -112,6 +112,12 @@ public class CameraController : TemporalSingleton<CameraController>
         playerPosition.ValueChanged += UpdateCameraPosition;
         aimPosition.ValueChanged += UpdateCameraPosition;
         UpdateCameraPosition();
+    }
+
+    private void OnDestroy()
+    {
+        playerPosition.ValueChanged -= UpdateCameraPosition;
+        aimPosition.ValueChanged -= UpdateCameraPosition;
     }
 
     #endregion Methods

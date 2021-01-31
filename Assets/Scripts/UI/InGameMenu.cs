@@ -50,7 +50,7 @@ public class InGameMenu : TemporalSingleton<InGameMenu>
 
 	private void RestartGame()
 	{
-		// reset game
+		UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 	}
 
 	private void BackToMenu()
