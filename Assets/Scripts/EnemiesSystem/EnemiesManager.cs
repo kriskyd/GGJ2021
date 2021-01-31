@@ -52,6 +52,11 @@ public class EnemiesManager : MonoBehaviour
 		StartCoroutine(WavesSpawning());
 	}
 
+	private void OnDestroy()
+	{
+		playerPosition.ValueChanged -= PlayerPosition_ValueChanged;
+	}
+
 	private IEnumerator WavesSpawning()
 	{
 		float awaitingTime = spawnDelayInSeconds;

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4043290476122685406}
   - component: {fileID: 4043290476122685407}
   - component: {fileID: 4043290476122685392}
+  - component: {fileID: 7687812499090159020}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_2 (4)"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -79,6 +80,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7687812499090159020
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043290476122685393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 149541833691738144, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}
 --- !u!1 &4043290476283284391
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,9 +198,10 @@ GameObject:
   - component: {fileID: 4043290476289889642}
   - component: {fileID: 4043290476289889643}
   - component: {fileID: 4043290476289889644}
+  - component: {fileID: 5676774318739687312}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_2 (5)"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -251,6 +267,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5676774318739687312
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043290476289889645}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 149541833691738144, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}
 --- !u!1 &4043290476309620248
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -1923039037
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -775,7 +805,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.25
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 890931cfefa710d41a6b153689833435, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f2e7a6ecdd6eba0439baa4d9e70d630b, type: 2}
 --- !u!114 &4402770658371125576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,7 +819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: 1479372276
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -804,7 +834,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 8c1088b99543df543bc136e598773a6b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 3bb2d856a7e1c5349977ff06db3a3b77, type: 2}
 --- !u!114 &3959537456588351075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,7 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -334000983
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -833,7 +863,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.25
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: e185b6791e7dd3949a8e1e00177f6801, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 4a9d946cde09f144b8bad947806143a4, type: 2}
 --- !u!114 &3601170937571704682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,7 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AgentTypeID: -1372625422
-  m_CollectObjects: 0
+  m_CollectObjects: 2
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
@@ -862,7 +892,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.8333333
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: da6365346428cff4c9594343b2b4be0b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: bc9c6f7ccd4eebe42b20ab19ed34c97f, type: 2}
 --- !u!114 &5894097282378630814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,7 +921,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2866c761f9dc43c49925e55bc6e821f7, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ee951aa01bf4b4a45a874ae7cd5b5794, type: 2}
 --- !u!1 &4043290477208055662
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,9 +933,10 @@ GameObject:
   - component: {fileID: 4043290477208055659}
   - component: {fileID: 4043290477208055660}
   - component: {fileID: 4043290477208055661}
+  - component: {fileID: 155102769389085577}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_2 (3)"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -971,6 +1002,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &155102769389085577
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043290477208055662}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 149541833691738144, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}
 --- !u!1 &4043290477331723457
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,9 +1027,10 @@ GameObject:
   - component: {fileID: 4043290477331723470}
   - component: {fileID: 4043290477331723471}
   - component: {fileID: 4043290477331723456}
+  - component: {fileID: 3381272444052653531}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_2 (2)"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1050,6 +1096,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3381272444052653531
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043290477331723457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 149541833691738144, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}
 --- !u!1 &4043290477833501428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,9 +1121,10 @@ GameObject:
   - component: {fileID: 4043290477833501425}
   - component: {fileID: 4043290477833501426}
   - component: {fileID: 4043290477833501427}
+  - component: {fileID: 8555651913063147581}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_2 (1)"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1129,6 +1190,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8555651913063147581
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043290477833501428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 149541833691738144, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}
 --- !u!1 &7301908549481442345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1140,6 +1215,7 @@ GameObject:
   - component: {fileID: 4595524996732688564}
   - component: {fileID: 6139683511505670065}
   - component: {fileID: 3856837596425433782}
+  - component: {fileID: 6498651079402281212}
   m_Layer: 0
   m_Name: "Kamie\u0144_kraw\u0119d\u017A_2"
   m_TagString: Untagged
@@ -1208,6 +1284,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6498651079402281212
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301908549481442345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 149541833691738144, guid: a9146e9f92979a544b6f31f4a988582f, type: 3}
 --- !u!1 &8771752879673736364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,9 +1309,10 @@ GameObject:
   - component: {fileID: 3739578573595198897}
   - component: {fileID: 4999201327868472827}
   - component: {fileID: 2962101220233563599}
+  - component: {fileID: 479954935125320925}
   m_Layer: 0
   m_Name: "Kamienie_Du\u017Ca_Formacja_1 (2)"
-  m_TagString: Untagged
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1301,6 +1392,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &479954935125320925
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771752879673736364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2352272465676470988, guid: d98afafaee5bcca42976b55857bd2472, type: 3}
 --- !u!1001 &359539711541050563
 PrefabInstance:
   m_ObjectHideFlags: 0

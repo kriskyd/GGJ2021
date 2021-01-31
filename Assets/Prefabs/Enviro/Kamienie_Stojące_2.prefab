@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5656309611860747812}
   - component: {fileID: 3884828310443202664}
   - component: {fileID: 1524806733311935652}
+  - component: {fileID: 3561265658597414984}
   m_Layer: 0
-  m_Name: 7
-  m_TagString: Untagged
+  m_Name: "Kamienie_Stoj\u0105ce_2"
+  m_TagString: Enviro Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3561265658597414984
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770819330450911307}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2582600252679314848, guid: d98afafaee5bcca42976b55857bd2472, type: 3}
 --- !u!1001 &966623321532735961
 PrefabInstance:
   m_ObjectHideFlags: 0
