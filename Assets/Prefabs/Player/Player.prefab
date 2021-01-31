@@ -997,8 +997,8 @@ MonoBehaviour:
   maxHP: 5
   playerPosition: {fileID: 11400000, guid: f778f0a31c37b374eb63f87f9bdaa51f, type: 2}
   aimPosition: {fileID: 11400000, guid: 22107cfc97c2a2b438d3a3f1bfcba159, type: 2}
-  walkSpeed: 8
-  runSpeed: 14
+  walkSpeed: 12
+  runSpeed: 21
   sideWalkModifier: 0.5
   movementSpeedLerp: 0.2
   playerFlatVelocity: {fileID: 11400000, guid: ff5d4ab928d73374a9966761ceff3cc4, type: 2}
@@ -1021,7 +1021,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0
+  m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

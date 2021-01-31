@@ -28,7 +28,7 @@ public class AttackPlayerStance : StanceSO
             enemy.NavMeshAgent.isStopped = true;
             if (Time.time - enemy.LastAttackTime > enemy.AttackCooldown)
             {
-                enemy.PerformAttack();
+                enemy.PerformAttack(GameManager.Instance.PlayerController);
             }
         }
         else

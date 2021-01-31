@@ -35,14 +35,18 @@ public class EnemiesManager : MonoBehaviour
 
 	public static EnemiesManager Instance { get; private set; }
 
+	private Vector3 lastPlayerPosition;
+
 	private void Awake()
 	{
 		Instance = this;
+		lastPlayerPosition = Vector3.one * int.MaxValue;
 	}
 
 	private void Start()
 	{
 		playerPosition.ValueChanged += PlayerPosition_ValueChanged;
+		PlayerPosition_ValueChanged();
 
 		SpawnStartingEnemies();
 		StartCoroutine(WavesSpawning());
@@ -62,8 +66,9 @@ public class EnemiesManager : MonoBehaviour
 			while(awaitingTime > 0f)
 			{
 				awaitingTime -= Time.deltaTime;
-
-				nextWaveTimerText.text = string.Format("{0:00}:{1:00}", awaitingTime / 60, awaitingTime % 60);
+				int min = (int)(awaitingTime / 60);
+				int sec = (int)(awaitingTime % 60);
+				nextWaveTimerText.text = string.Format("{0:00}:{1:00}", min, sec);
 
 				yield return null;
 			}
@@ -84,11 +89,21 @@ public class EnemiesManager : MonoBehaviour
 
 	private void PlayerPosition_ValueChanged()
 	{
+		if(Vector3.Distance(lastPlayerPosition, PlayerPosition) < 2f)
+		{
+			return;
+		}
+
+		lastPlayerPosition = PlayerPosition;
 		foreach(var spawnedEnemy in spawnedEnemies)
 		{
 			if(spawnedEnemy.Enemy.CurrentStance != Stance.Die)
 			{
-				if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition))
+				if(spawnedEnemy.Enemy.HoldPart)
+				{
+					spawnedEnemy.Enemy.SetStance(Stance.PlacePartInJunkPile);
+				}
+				else if(Vector3.Distance(spawnedEnemy.Enemy.transform.position, rocketPosition) < Vector3.Distance(spawnedEnemy.Enemy.transform.position, playerPosition) && AnyPartAttachedToRocket())
 				{
 					spawnedEnemy.Enemy.SetStance(Stance.StealRocketPart);
 				}
@@ -98,6 +113,11 @@ public class EnemiesManager : MonoBehaviour
 				}
 			}
 		}
+	}
+
+	private bool AnyPartAttachedToRocket()
+	{
+		return GameManager.Instance.RocketScript.MountedPartsCount > 0;
 	}
 
 	public struct EnemyPoolData

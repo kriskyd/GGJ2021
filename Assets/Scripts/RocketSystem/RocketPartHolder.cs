@@ -20,6 +20,7 @@ public class RocketPartHolder : MonoBehaviour
 		holdedRocketPart = rocketPart;
 		holdedRocketPart.transform.SetParent(this.transform);
 		holdedRocketPart.transform.localPosition = Vector3.zero;
+		rocketPart.PickUp();
 	}
 
 	public RocketPart DropRocketPart()
