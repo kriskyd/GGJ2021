@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RocketSystem
 {
-	public class TempRocketScript : MonoBehaviour, IDamageable
+	public class TempRocketScript : MonoBehaviour, IDamageable, IScreenMarkable
 	{
 		[SerializeField]
 		private RocketValue rocketValue;
@@ -26,7 +26,9 @@ namespace RocketSystem
 
 		public int MountedPartsCount => mountedRocketParts.Count;
 
-		private void Awake()
+        public bool ShowMarkerOnScreen => false;
+
+        private void Awake()
 		{
 			rocketValue.Value = this;
 			rocketPosition.Value = transform.position;

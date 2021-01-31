@@ -67,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPool: {fileID: 4122260197436535362}
   minEnemiesToSpawn: 2
-  maxEnemiesToSpawn: 6
+  maxEnemiesToSpawn: 4
 --- !u!1 &4122260197526701192
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesPool: {fileID: 4122260197526701194}
-  minEnemiesToSpawn: 2
-  maxEnemiesToSpawn: 6
+  minEnemiesToSpawn: 4
+  maxEnemiesToSpawn: 10
 --- !u!1 &4122260197806850587
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,4 +332,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPool: {fileID: 4122260198585211501}
   minEnemiesToSpawn: 2
-  maxEnemiesToSpawn: 4
+  maxEnemiesToSpawn: 6
