@@ -3,95 +3,100 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager Instance
-    {
-        get
-        {
+	private static GameManager _instance;
+	public static GameManager Instance
+	{
+		get
+		{
 			if(_instance == null)
 			{
 				_instance = GameObject.FindObjectOfType<GameManager>();
 			}
-            return _instance;
-        }
-    }
+			return _instance;
+		}
+	}
 
 	[SerializeField]
-    private RocketSystem.TempRocketScript rocketScript;
+	private RocketSystem.TempRocketScript rocketScript;
 
-    [SerializeField]
-    private ListVector3Value rocketPartPositions;
+	[SerializeField]
+	private ListVector3Value rocketPartPositions;
 
-    [SerializeField]
-    private InGameMenu inGameMenu;
+	[SerializeField]
+	private InGameMenu inGameMenu;
 
-    [SerializeField]
-    public GameObject playerPrefab;
-    [SerializeField]
-    public Transform playerSpawnPoint;
+	[SerializeField]
+	public GameObject playerPrefab;
+	[SerializeField]
+	public Transform playerSpawnPoint;
 
-    [SerializeField]
-    private Material missingPartMaterial;
+	[SerializeField]
+	private Material missingPartMaterial;
 
-    public Material MissingPartMaterial { get => missingPartMaterial; }
-    public RocketSystem.TempRocketScript RocketScript { get => rocketScript; }
-    public PlayerController PlayerController { get; private set; }
+	[SerializeField]
+	private AudioSource gameloseAudioSource;
 
-    public SA.Coroutines.Coroutines Coroutines { get; private set; }
+	public Material MissingPartMaterial { get => missingPartMaterial; }
+	public RocketSystem.TempRocketScript RocketScript { get => rocketScript; }
+	public PlayerController PlayerController { get; private set; }
+
+	public SA.Coroutines.Coroutines Coroutines { get; private set; }
 
 
-    private int placedRocketParts = 0;
+	private int placedRocketParts = 0;
 
-    private void Awake()
-    {
-        _instance = this;
-        Coroutines = new SA.Coroutines.Coroutines();
-        InitializeGame();
-    }
+	private void Awake()
+	{
+		_instance = this;
+		Coroutines = new SA.Coroutines.Coroutines();
+		InitializeGame();
+	}
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            inGameMenu.Show();
-        }
-    }
+	private void Update()
+	{
+		if(Input.GetButtonDown("Cancel"))
+		{
+			inGameMenu.Show();
+		}
+	}
 
-    private void InitializeGame()
-    {
-        GameObject playerInstance = Instantiate(playerPrefab, playerSpawnPoint.position, transform.rotation);
-        PlayerController = playerInstance.GetComponent<PlayerController>();
-        rocketPartPositions.Clear(); 
-        placedRocketParts = 0;
-    }
+	private void InitializeGame()
+	{
+		GameObject playerInstance = Instantiate(playerPrefab, playerSpawnPoint.position, transform.rotation);
+		PlayerController = playerInstance.GetComponent<PlayerController>();
+		rocketPartPositions.Clear();
+		placedRocketParts = 0;
+	}
 
-    public void OnRocketPartPlaced()
-    {
-        ++placedRocketParts;
-        CheckRocketCompletion();
-    }
-    public void OnRocketPartRemoved()
-    {
-        --placedRocketParts;
-        CheckRocketCompletion();
-    }
+	public void OnRocketPartPlaced()
+	{
+		++placedRocketParts;
+		CheckRocketCompletion();
+	}
+	public void OnRocketPartRemoved()
+	{
+		--placedRocketParts;
+		CheckRocketCompletion();
+	}
 
-    private void CheckRocketCompletion()
-    {
-        Debug.Log($"Placed {placedRocketParts} of {RocketSystem.RocketPartSlot.slotsCount} rocket parts.");
-        if (placedRocketParts >= RocketSystem.RocketPartSlot.slotsCount)
-        {
-            GameWon();
-        }
-    }
+	private void CheckRocketCompletion()
+	{
+		Debug.Log($"Placed {placedRocketParts} of {RocketSystem.RocketPartSlot.slotsCount} rocket parts.");
+		if(placedRocketParts >= RocketSystem.RocketPartSlot.slotsCount)
+		{
+			GameWon();
+		}
+	}
 
-    public void GameWon()
-    {
-        inGameMenu.Show("Game won", disableBackButton: true, win: true);
-    }
+	public void GameWon()
+	{
+		inGameMenu.Show("Game won", disableBackButton: true, win: true);
+	}
 
-    public void GameOver()
-    {
-        inGameMenu.Show("Game over", disableBackButton: true, lose: true);
-    }
+	public void GameOver()
+	{
+		inGameMenu.Show("Game over", disableBackButton: true, lose: true);
+		gameloseAudioSource.Play();
+
+	}
 }
