@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 		set
 		{
 			_hp = value;
-			OnHPChanged?.Invoke(value);
 		}
 	}
 
@@ -175,7 +174,8 @@ public class PlayerController : MonoBehaviour, IDamageable
 
 	public void GotHit(IDamageDealer damageDealer, int damage)
 	{
-		if(HP - damage <= 0)
+		OnHPChanged?.Invoke(HP - damage);
+		if (HP - damage <= 0)
 		{
 			Die();
 		}
