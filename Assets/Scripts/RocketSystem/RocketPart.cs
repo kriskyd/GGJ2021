@@ -1,6 +1,7 @@
 ﻿using SA.ScriptableData.Collection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace RocketSystem
@@ -19,6 +20,11 @@ namespace RocketSystem
 		[SerializeField]
 		private ListVector3Value rocketPartPositions;
 
+		[SerializeField]
+		private AudioSource pickupAudioSource;
+		[SerializeField]
+		private List<AudioClip> pickupAudioClips;
+
 		private int idx = -1;
 		public int Idx { get => idx; }
 
@@ -31,6 +37,8 @@ namespace RocketSystem
 		public void PickUp()
 		{
 			PickedUp?.Invoke(this);
+			pickupAudioSource.clip = pickupAudioClips.ElementAt(UnityEngine.Random.Range(0, pickupAudioClips.Count()));
+			pickupAudioSource.Play();
 		}
 
 		public void DropDown()
