@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
 	[SerializeField] private int maxHP = 100;
 
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void GotHit(int damage)
+	public void GotHit(IDamageDealer damageDealer, int damage)
 	{
 		if(HP - damage <= 0)
 		{

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122260197436535363}
   - component: {fileID: 4122260197436535362}
+  - component: {fileID: 1727944758}
   m_Layer: 0
   m_Name: TurtleShellObjectPool
   m_TagString: Untagged
@@ -52,6 +53,21 @@ MonoBehaviour:
   _poolExpandingSize: 5
   _isPoolShrinkingEnabled: 1
   _poolShrinkingSize: 1
+--- !u!114 &1727944758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122260197436535360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d400260a47aeda468cf48ee392712a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPool: {fileID: 4122260197436535362}
+  minEnemiesToSpawn: 2
+  maxEnemiesToSpawn: 6
 --- !u!1 &4122260197526701192
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122260197526701195}
   - component: {fileID: 4122260197526701194}
+  - component: {fileID: 731833346}
   m_Layer: 0
   m_Name: SlimeObjectPool
   m_TagString: Untagged
@@ -104,6 +121,21 @@ MonoBehaviour:
   _poolExpandingSize: 5
   _isPoolShrinkingEnabled: 1
   _poolShrinkingSize: 1
+--- !u!114 &731833346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122260197526701192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d400260a47aeda468cf48ee392712a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPool: {fileID: 4122260197526701194}
+  minEnemiesToSpawn: 2
+  maxEnemiesToSpawn: 6
 --- !u!1 &4122260197806850587
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,21 +183,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c112444c4810aaa41b3fd54d226a1cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nextWaveTimerText: {fileID: 0}
+  spawnDelayInSeconds: 60
   enemiesPools:
-  - {fileID: 4122260197526701194}
-  - {fileID: 4122260197436535362}
-  - {fileID: 4122260198585211501}
-  - {fileID: 4122260198039515835}
+  - {fileID: 731833346}
+  - {fileID: 1727944758}
+  - {fileID: 2013863387}
+  - {fileID: 898426658}
   playerPosition: {fileID: 11400000, guid: f778f0a31c37b374eb63f87f9bdaa51f, type: 2}
   rocketPosition: {fileID: 11400000, guid: 567e6206360a19340b3f686fdb30457a, type: 2}
-  minEnemiesToSpawn: 0
-  maxEnemiesToSpawn: 0
   spawnBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 44, y: 2, z: 44}
+    m_Extent: {x: 200, y: 10, z: 200}
   excludedSpawnBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 14, y: 1, z: 14}
+    m_Extent: {x: 75, y: 1, z: 75}
 --- !u!1 &4122260198039515833
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122260198039515832}
   - component: {fileID: 4122260198039515835}
+  - component: {fileID: 898426658}
   m_Layer: 0
   m_Name: GolemObjectPool
   m_TagString: Untagged
@@ -217,6 +250,21 @@ MonoBehaviour:
   _poolExpandingSize: 5
   _isPoolShrinkingEnabled: 1
   _poolShrinkingSize: 1
+--- !u!114 &898426658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122260198039515833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d400260a47aeda468cf48ee392712a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPool: {fileID: 4122260198039515835}
+  minEnemiesToSpawn: 1
+  maxEnemiesToSpawn: 2
 --- !u!1 &4122260198585211499
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4122260198585211498}
   - component: {fileID: 4122260198585211501}
+  - component: {fileID: 2013863387}
   m_Layer: 0
   m_Name: BeholderObjectPool
   m_TagString: Untagged
@@ -269,3 +318,18 @@ MonoBehaviour:
   _poolExpandingSize: 5
   _isPoolShrinkingEnabled: 1
   _poolShrinkingSize: 1
+--- !u!114 &2013863387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4122260198585211499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d400260a47aeda468cf48ee392712a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPool: {fileID: 4122260198585211501}
+  minEnemiesToSpawn: 2
+  maxEnemiesToSpawn: 4

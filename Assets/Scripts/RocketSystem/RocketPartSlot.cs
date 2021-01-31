@@ -29,6 +29,21 @@ namespace RocketSystem
 			for (int i = 0; i < meshRenderer.materials.Length; ++i)
             {
 				originalMaterials[i] = meshRenderer.materials[i];
+				if(missingPartMaterials == null)
+				{
+					UnityEngine.Debug.LogError("missingPartMaterials[] is null");
+					continue;
+				}
+				if(GameManager.Instance == null)
+				{
+					UnityEngine.Debug.LogError("GameManager.Instance is null");
+					continue;
+				}
+				if(GameManager.Instance.MissingPartMaterial == null)
+				{
+					UnityEngine.Debug.LogError("GameManager.Instance.MissingPartMaterial is null");
+					continue;
+				}
 				missingPartMaterials[i] = GameManager.Instance.MissingPartMaterial;
             }
 
@@ -36,9 +51,6 @@ namespace RocketSystem
 			{
 				meshRenderer.materials = missingPartMaterials;
 			}
-
-			//meshRenderer.enabled = PartInSlot;
-            
 		}
 
 		private void Start()
@@ -56,7 +68,8 @@ namespace RocketSystem
 			if (PartInSlot) return;
 			rocketPart.gameObject.SetActive(false);
 
-			meshRenderer.materials = originalMaterials; //PartInSlot = true;
+			meshRenderer.materials = originalMaterials; 
+			PartInSlot = true;
 
 			meshRenderer.enabled = true;
 			GameManager.Instance.OnRocketPartPlaced();
@@ -67,7 +80,8 @@ namespace RocketSystem
 			if (!PartInSlot) return;
 			rocketPart.gameObject.SetActive(true);
 			
-			meshRenderer.materials = missingPartMaterials; //PartInSlot = false;
+			meshRenderer.materials = missingPartMaterials; 
+			PartInSlot = false;
 
 			meshRenderer.enabled = false;
 			GameManager.Instance.OnRocketPartRemoved();
