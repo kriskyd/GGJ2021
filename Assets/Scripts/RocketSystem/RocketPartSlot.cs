@@ -36,9 +36,6 @@ namespace RocketSystem
 			{
 				meshRenderer.materials = missingPartMaterials;
 			}
-
-			//meshRenderer.enabled = PartInSlot;
-            
 		}
 
 		private void Start()
@@ -56,7 +53,8 @@ namespace RocketSystem
 			if (PartInSlot) return;
 			rocketPart.gameObject.SetActive(false);
 
-			meshRenderer.materials = originalMaterials; //PartInSlot = true;
+			meshRenderer.materials = originalMaterials; 
+			PartInSlot = true;
 
 			meshRenderer.enabled = true;
 			GameManager.Instance.OnRocketPartPlaced();
@@ -67,7 +65,8 @@ namespace RocketSystem
 			if (!PartInSlot) return;
 			rocketPart.gameObject.SetActive(true);
 			
-			meshRenderer.materials = missingPartMaterials; //PartInSlot = false;
+			meshRenderer.materials = missingPartMaterials; 
+			PartInSlot = false;
 
 			meshRenderer.enabled = false;
 			GameManager.Instance.OnRocketPartRemoved();

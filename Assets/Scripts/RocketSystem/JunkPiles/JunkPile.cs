@@ -10,8 +10,20 @@ public class JunkPile : MonoBehaviour
 	{
 		if(rocketPart != null)
 		{
-			rocketPart.transform.SetParent(this.transform);
-			rocketPart.transform.localPosition = Vector3.zero;
+			PlaceRocketPart(rocketPart);
 		}
+	}
+
+	public void PlaceRocketPart(RocketPart rocketPart)
+	{
+		rocketPart.transform.SetParent(this.transform);
+		rocketPart.transform.localPosition = Vector3.zero;
+
+		rocketPart.PickedUp += RocketPart_PickedUp;
+	}
+
+	private void RocketPart_PickedUp(RocketPart rocketPart)
+	{
+		rocketPart = null;
 	}
 }

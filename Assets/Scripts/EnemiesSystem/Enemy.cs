@@ -1,9 +1,10 @@
 ﻿using DG.Tweening;
 using ObjectPooling;
+using RocketSystem;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour, IRestorable
+public class Enemy : MonoBehaviour, IRestorable, IDamageDealer
 {
 	[SerializeField]
 	private int damageDealtToPlayer;
@@ -21,6 +22,10 @@ public class Enemy : MonoBehaviour, IRestorable
 	private StanceSO dieStance;
 	[SerializeField]
 	private StanceSO idleStance;
+	[SerializeField]
+	private StanceSO placePartInJunkPileStance;
+	[SerializeField]
+	private EnemyPartHolder enemyPartHolder;
 
 	[SerializeField]
 	private int maxHP;
@@ -43,6 +48,7 @@ public class Enemy : MonoBehaviour, IRestorable
 	public NavMeshAgent NavMeshAgent => navMeshAgent;
 	public Animator Animator => animator;
 	public Collider Collider => enemyCollider;
+	public bool HoldPart => enemyPartHolder.HoldsPart;
 
 	public bool IsCollapsingTweenSet => collapsingTween != null;
 
@@ -76,8 +82,8 @@ public class Enemy : MonoBehaviour, IRestorable
 		navMeshAgent.enabled = false;
 		_hp = maxHP;
 		SetStance(Stance.Idle);
-        if (collapsingTween != null)
-        {
+		if(collapsingTween != null)
+		{
 			collapsingTween.Kill();
 			collapsingTween = null;
 		}
@@ -102,10 +108,14 @@ public class Enemy : MonoBehaviour, IRestorable
 				currentStance = stealRocketPartStance;
 				break;
 			case Stance.Die:
+				TryDropPart();
 				currentStance = dieStance;
 				break;
 			case Stance.Idle:
 				currentStance = idleStance;
+				break;
+			case Stance.PlacePartInJunkPile:
+				currentStance = placePartInJunkPileStance;
 				break;
 			default:
 				break;
@@ -116,7 +126,7 @@ public class Enemy : MonoBehaviour, IRestorable
 
 	public void GotHit(int damage)
 	{
-		if (_hp - damage <= 0)
+		if(_hp - damage <= 0)
 		{
 			SetStance(Stance.Die);
 		}
@@ -128,27 +138,42 @@ public class Enemy : MonoBehaviour, IRestorable
 	}
 
 	public void DespawnEnemy()
-    {
-		if (EnemiesManager != null) EnemiesManager.DespawnEnemy(this);
-    }
+	{
+		if(EnemiesManager != null) EnemiesManager.DespawnEnemy(this);
+	}
 
 	public void SetCollapsingTween()
-    {
-		if (collapsingTween != null) collapsingTween.Kill();
+	{
+		if(collapsingTween != null) collapsingTween.Kill();
 		collapsingTween = transform.DOMoveY(-50.0f, 10.0f);
 		collapsingTween.SetDelay(3.0f);
 		collapsingTween.onComplete = () => { DespawnEnemy(); };
 	}
 
-	public void PerformAttack()
+	public void PerformAttack(IDamageable damageable)
 	{
 		Animator.SetTrigger(attackTriggerName);
-		GameManager.Instance.PlayerController.GotHit(DamageDealtToPlayer);
-		LastAttackTime = Time.time; 
+		damageable.GotHit(this, damageDealtToPlayer);
+		LastAttackTime = Time.time;
+	}
+
+	public bool TryPickPart(RocketPart rocketPart)
+	{
+		return enemyPartHolder.TryPickPart(rocketPart);
+	}
+
+	public bool TryDropPart()
+	{
+		return enemyPartHolder.TryDropPart();
+	}
+
+	public bool TryPlacePart(RocketPart rocketPart, JunkPile junkPile)
+	{
+		return enemyPartHolder.TryPlacePart(junkPile);
 	}
 }
 
 public enum Stance
 {
-	Idle, AttackPlayer, StealRocketPart, Die
+	Idle, AttackPlayer, StealRocketPart, PlacePartInJunkPile, Die
 }
