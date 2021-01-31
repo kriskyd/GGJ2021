@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class MainMenu : TemporalSingleton<MainMenu>
 {
+	[SerializeField] private GameObject tutorialScreen;
 	[SerializeField] private GameObject menuPanel;
 	[SerializeField] private GameObject controlsPanel;
 	[SerializeField] private GameObject creditsPanel;
@@ -15,7 +16,7 @@ public class MainMenu : TemporalSingleton<MainMenu>
 	protected override void Initialize()
 	{
 		base.Initialize();
-		button1.onClick.AddListener(PlayGame);
+		button1.onClick.AddListener(ShowTutorial);
 		button2.onClick.AddListener(ShowControls);
 		button3.onClick.AddListener(ShowCredits);
 		button4.onClick.AddListener(ExitGame);
@@ -39,10 +40,16 @@ public class MainMenu : TemporalSingleton<MainMenu>
 	}
 
 
-	private void PlayGame()
+	public void PlayGame()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 		Time.timeScale = 1f;
+	}
+
+	private void ShowTutorial()
+	{
+		menuPanel.SetActive(false);
+		tutorialScreen.SetActive(true);
 	}
 
 	private void ShowCredits()
