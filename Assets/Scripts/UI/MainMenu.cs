@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : TemporalSingleton<MainMenu>
 {
@@ -6,15 +7,18 @@ public class MainMenu : TemporalSingleton<MainMenu>
 	[SerializeField] private GameObject controlsPanel;
 	[SerializeField] private GameObject creditsPanel;
 	[SerializeField] private SimpleMenu menuController;
+	[SerializeField] private Button button1;
+	[SerializeField] private Button button2;
+	[SerializeField] private Button button3;
+	[SerializeField] private Button button4;
 
 	protected override void Initialize()
 	{
 		base.Initialize();
-
-		menuController.CreateButton("Play Game", PlayGame);
-		menuController.CreateButton("Controls", ShowControls);
-		menuController.CreateButton("Credits", ShowCredits);
-		menuController.CreateButton("Exit Game", ExitGame);
+		button1.onClick.AddListener(PlayGame);
+		button2.onClick.AddListener(ShowControls);
+		button3.onClick.AddListener(ShowCredits);
+		button4.onClick.AddListener(ExitGame);
 	}
 
 	private void Update()
@@ -38,6 +42,7 @@ public class MainMenu : TemporalSingleton<MainMenu>
 	private void PlayGame()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+		Time.timeScale = 1f;
 	}
 
 	private void ShowCredits()
