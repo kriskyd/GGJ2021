@@ -20,6 +20,8 @@ namespace RocketSystem
 
 		public RocketPartData RocketPartData => rocketPartData;
 
+		public bool IsRepaired => !gameObject.activeInHierarchy;
+
 		private void Awake()
 		{
 			AllRocketParts.Add(this);
