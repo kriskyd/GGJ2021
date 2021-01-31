@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 	private bool _isAlive = true;
 	public bool IsAlive { get => _isAlive; }
 
-	private bool isRunning;
+	private bool isRunning = true;
 	private float movementSpeed;
 	private bool isShooting;
 	private float shootingSpeed;
