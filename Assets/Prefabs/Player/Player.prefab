@@ -1002,6 +1002,7 @@ MonoBehaviour:
   sideWalkModifier: 0.5
   movementSpeedLerp: 0.2
   playerFlatVelocity: {fileID: 11400000, guid: ff5d4ab928d73374a9966761ceff3cc4, type: 2}
+  walkSound: {fileID: 8300000, guid: fca33b5be1eea0f4d90e585d2df8f2b8, type: 3}
   walkSoundSource: {fileID: 4088506558012987395}
   bulletSpawnTransform: {fileID: 2307877350792975030}
   maxBulletsPerSec: 9

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float sideWalkModifier = 0.5f;
 	[SerializeField] private float movementSpeedLerp = 0.2f;
 	[SerializeField] private Vector3Value playerFlatVelocity;
+	[SerializeField] private AudioClip walkSound;
 	[SerializeField] private AudioSource walkSoundSource;
 
 	[Header("Shooting")]
@@ -70,7 +71,6 @@ public class PlayerController : MonoBehaviour
 	{
 		_hp = maxHP;
 		navMeshAgent = GetComponent<NavMeshAgent>();
-		walkSoundSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -167,7 +167,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if(Time.time - lastWalkSoundTime > 0.1f)
 		{
-			walkSoundSource.Play();
+			walkSoundSource.PlayOneShot(walkSound);
 			lastWalkSoundTime = Time.time;
 		}
 	}
