@@ -12,12 +12,19 @@ public interface IScreenMarkable
 
 public class ObjectMarkerUI : MonoBehaviour
 {
-	[SerializeField] private RocketPart target;
+	[SerializeField] private GameObject target;
 	[SerializeField] private CanvasGroup canvasGroup;
+
+	private IScreenMarkable targetMarkable;
 
 	private AnimBool visible = new AnimBool(false);
 
-	private void Update()
+    private void Awake()
+    {
+		targetMarkable = target.GetComponent<IScreenMarkable>();
+    }
+
+    private void Update()
 	{
 		UpdateOnScreenPosition();
 		UpdateFadeValue();
@@ -26,7 +33,7 @@ public class ObjectMarkerUI : MonoBehaviour
 	private void UpdateFadeValue()
 	{
 		var viewPoint = CameraController.Instance.Camera.WorldToViewportPoint(target.transform.position);
-		visible.Target = !target.ShowMarkerOnScreen && (viewPoint.x < 0 || viewPoint.x > 1 || viewPoint.y < 0 || viewPoint.y > 1);
+		visible.Target = !targetMarkable.ShowMarkerOnScreen && (viewPoint.x < 0 || viewPoint.x > 1 || viewPoint.y < 0 || viewPoint.y > 1);
 		canvasGroup.alpha = visible.FadedValue;
 	}
 
