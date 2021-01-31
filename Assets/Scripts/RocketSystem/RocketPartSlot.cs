@@ -71,7 +71,7 @@ namespace RocketSystem
 			meshRenderer.materials = originalMaterials; 
 			PartInSlot = true;
 
-			meshRenderer.enabled = true;
+			//meshRenderer.enabled = true;
 			GameManager.Instance.OnRocketPartPlaced();
 		}
 
@@ -83,7 +83,7 @@ namespace RocketSystem
 			meshRenderer.materials = missingPartMaterials; 
 			PartInSlot = false;
 
-			meshRenderer.enabled = false;
+			//meshRenderer.enabled = false;
 			GameManager.Instance.OnRocketPartRemoved();
 		}
 
