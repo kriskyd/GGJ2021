@@ -44,7 +44,8 @@ public class Bullet : MonoBehaviour, ObjectPooling.IRestorable
         {
 			enemy.GotHit(damage);
 		}
-		Instantiate(hitParticlesPrefab, transform.position, Quaternion.Inverse(transform.rotation));
-		ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject); 
+		var particle = ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet_splash")?.Spawn(transform.position);
+		particle.transform.LookAt(transform.position + transform.up);
+		ObjectPooling.ObjectPoolManager.Instance.GetPool("bullet").Despawn(gameObject);
 	}
 }

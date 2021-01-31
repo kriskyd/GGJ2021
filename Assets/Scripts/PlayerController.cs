@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 	[SerializeField] private float movementSpeedLerp = 0.2f;
 	[SerializeField] private Vector3Value playerFlatVelocity;
 	[SerializeField] private AudioClip walkSound;
+	[SerializeField] private AudioSource walkSoundSource;
 
 	[Header("Shooting")]
 
@@ -54,7 +55,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 	private float shootingSpeed;
 	private float lastShootTime;
 	private NavMeshAgent navMeshAgent;
-	private AudioSource audioSource;
 	private float lastWalkSoundTime;
 
 	private const string hitTriggerName = "Hit";
@@ -71,7 +71,6 @@ public class PlayerController : MonoBehaviour, IDamageable
 	{
 		_hp = maxHP;
 		navMeshAgent = GetComponent<NavMeshAgent>();
-		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void Update()
@@ -168,7 +167,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 	{
 		if(Time.time - lastWalkSoundTime > 0.1f)
 		{
-			audioSource.PlayOneShot(walkSound);
+			walkSoundSource.PlayOneShot(walkSound);
 			lastWalkSoundTime = Time.time;
 		}
 	}
