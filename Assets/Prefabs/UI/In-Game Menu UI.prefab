@@ -300,7 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defeatBackgroundSprite: {fileID: 21300000, guid: fa15a9078d3c883459f18ed71310a250,
     type: 3}
-  winBackgroundSprite: {fileID: 0}
+  winBackgroundSprite: {fileID: 21300000, guid: 753cef5593847bb4883d005dbbf111a1,
+    type: 3}
   background: {fileID: 1428519801735208849}
   gameStatusLabel: {fileID: 4859958887010802912}
   menuPanel: {fileID: 1428519801771117172}
