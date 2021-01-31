@@ -11,6 +11,14 @@ namespace RocketSystem
 		private RocketValue rocketValue;
 		[SerializeField]
 		private Vector3Value rocketPosition;
+		[SerializeField]
+		private AudioSource repairAudioSource;
+		[SerializeField]
+		private List<AudioClip> repairAudioClips;
+		[SerializeField]
+		private AudioSource fallAudioSource;
+		[SerializeField]
+		private List<AudioClip> fallAudioClips;
 
 		private Vector3 lastPosition;
 		private int currentRocketHealth = 10;
@@ -30,6 +38,8 @@ namespace RocketSystem
 			rocketPart.RocketPartData.RocketPartSlot.PlaceRocketPart(rocketPart);
 
 			mountedRocketParts.Add(rocketPart);
+			repairAudioSource.clip = repairAudioClips.ElementAt(UnityEngine.Random.Range(0, repairAudioClips.Count()));
+			repairAudioSource.Play();
 		}
 
 		public void DismountRocketPart(Enemy enemy, RocketPart rocketPart)
@@ -40,6 +50,8 @@ namespace RocketSystem
 			enemy.TryPickPart(rocketPart);
 
 			mountedRocketParts.Remove(rocketPart);
+			repairAudioSource.clip = fallAudioClips.ElementAt(UnityEngine.Random.Range(0, repairAudioClips.Count()));
+			fallAudioSource.Play();
 		}
 
 		public void GotHit(IDamageDealer damageDealer, int damage)
