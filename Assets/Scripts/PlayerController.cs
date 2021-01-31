@@ -191,5 +191,6 @@ public class PlayerController : MonoBehaviour
 		animator.SetBool(deadBoolName, true);
 		_isAlive = false;
 		navMeshAgent.enabled = false;
+		GameManager.Instance.GameOver();
 	}
 }
