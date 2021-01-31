@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6744263918119665169}
+  - component: {fileID: 5575392722843748844}
   m_Layer: 0
-  m_Name: Empty
+  m_Name: Bullet Splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +31,27 @@ Transform:
   m_Father: {fileID: 6744263919892584253}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5575392722843748844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744263918119665168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07920719b4f15a34f911941d7bbbc2a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolID: bullet_splash
+  pooledGameObject: {fileID: 8751118293012992542, guid: 16a2cac391bace74aa5bc18d36b755a0,
+    type: 3}
+  _minPoolSize: 20
+  _limitPoolSize: 0
+  _maxPoolSize: 20
+  _poolExpandingSize: 1
+  _isPoolShrinkingEnabled: 0
+  _poolShrinkingSize: 1
 --- !u!1 &6744263918708208182
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +93,7 @@ GameObject:
   - component: {fileID: 6744263919525828243}
   - component: {fileID: 6744263919525828240}
   m_Layer: 0
-  m_Name: Bullets Object Pool
+  m_Name: Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
